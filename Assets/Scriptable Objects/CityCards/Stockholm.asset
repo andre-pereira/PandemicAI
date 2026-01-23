@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Stockholm
+  m_EditorClassIdentifier: 
+  cityID: 6
+  neighbors: 040000000500000007000000
+  cityName: Stockholm
+  population: 1.000.000
+  countryName: Sweden
+  virusInfo: {fileID: 11400000, guid: da69709b28dd74c44be7d4c05734fff8, type: 2}
+  mainArtwork: {fileID: 8155074861821192779, guid: a31a3cdab7d411243b1a4270d88f6018, type: 3}
+  flagArtwork: {fileID: 21300000, guid: 5c9cf831378251e479336b391b9e6e6d, type: 3}

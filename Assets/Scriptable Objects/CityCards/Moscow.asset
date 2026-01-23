@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Moscow
+  m_EditorClassIdentifier: 
+  cityID: 0
+  neighbors: 010000000200000004000000
+  cityName: Moscow
+  population: 13.000.000
+  countryName: Russia
+  virusInfo: {fileID: 11400000, guid: da69709b28dd74c44be7d4c05734fff8, type: 2}
+  mainArtwork: {fileID: 358619786831828800, guid: ba35a7fc61ef69146a58d6a7d045b9db, type: 3}
+  flagArtwork: {fileID: 21300000, guid: 465bbe2b6e348f74a96e356ba6eea868, type: 3}

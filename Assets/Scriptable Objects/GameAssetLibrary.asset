@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491fb4d556cde3c42bfa28732b88e4f4, type: 3}
+  m_Name: GameAssetLibrary
+  m_EditorClassIdentifier: 
+  cityCardPrefab: {fileID: 7863806904568637480, guid: 6c4b375740f4e8e45bea6c25af1e4fe5, type: 3}
+  infectionCardPrefab: {fileID: 6797870825449373451, guid: a109d6cbcd390264b93be891c0c906c5, type: 3}
+  cubePrefab: {fileID: 8237507982147475270, guid: 58ddba09cc3a1fc44a6b2cf426c33656, type: 3}
+  epidemicCardPrefab: {fileID: 3558608632174755047, guid: 3c4ba57701411b54db91741a3510f268, type: 3}
+  cureVialPrefab: {fileID: 9207547046604129301, guid: 93cb6c19bd6ec4a409c48edbd6466da6, type: 3}
+  infectionCardBackPrefab: {fileID: 5873278911148598821, guid: 1a6c121321412d341a79bc2f8bb90bb8, type: 3}
+  outbreakMarkerPrefab: {fileID: 9065246305866804968, guid: 620ed4bdb167ca44f81ddcfe5733406e, type: 3}
+  infectionRateMarkerPrefab: {fileID: 7554688975154906279, guid: 2dbaff768abcb2b4f9e12953cd4b3fe4, type: 3}
+  pawnPrefab: {fileID: 7680423514386549737, guid: 192875a961f8fe544835bcc057c8610a, type: 3}
+  playerAreaPrefab: {fileID: 8516675296625599029, guid: f3b6a2a62f81ff04fb83464c0ae0a8f2, type: 3}
+  roleCardPrefab: {fileID: 4754815906164770026, guid: 7a0055f01ee16194d927128cc62ac82c, type: 3}
+  lineMaterial: {fileID: 2100000, guid: 722dfea0e9d2b09469006c36d31a7867, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Berlin
+  m_EditorClassIdentifier: 
+  cityID: 17
+  neighbors: 05000000100000001200000014000000
+  cityName: Berlin
+  population: 3.700.000
+  countryName: Germany
+  virusInfo: {fileID: 11400000, guid: 124bbd9c3c093494f8709abd22e318cb, type: 2}
+  mainArtwork: {fileID: 271371141855715451, guid: e8b5e4bb80b80274fbd4e1f6b9a25c59, type: 3}
+  flagArtwork: {fileID: 21300000, guid: fba5fe5c299959e44a3060a6f04f22a0, type: 3}

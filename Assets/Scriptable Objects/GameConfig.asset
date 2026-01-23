@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669d2fa968cd2a84e91ce2c5fbcae2e0, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  PlayerCardsSeed: 2
+  InfectionCardsSeed: 2
+  AnimationTimingMultiplier: 1
+  PlayerUIOpacity: 0.7
+  PlayerName: Anass
+  BotName: Alex
+  startingNCards: 3
+  FirstToPlay: 0
+  UseFurhat: 1
+  SpeechRecActivated: 1
+  EndSilTimeout: 1000
+  NoSpeechTimeout: 5000
+  SimulationMode: 0
+  StepByStepSimulation: 0
+  UseAIQuarantineSpecialist: 0
+  UseAIContainmentSpecialist: 0
+  NumberSimulations: 100

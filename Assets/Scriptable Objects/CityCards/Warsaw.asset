@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Warsaw
+  m_EditorClassIdentifier: 
+  cityID: 5
+  neighbors: 0200000006000000070000001000000011000000
+  cityName: Warsaw
+  population: 1.800.000
+  countryName: Poland
+  virusInfo: {fileID: 11400000, guid: da69709b28dd74c44be7d4c05734fff8, type: 2}
+  mainArtwork: {fileID: -7923959771831207431, guid: e2a06a42f4643064cb02a198611271cd, type: 3}
+  flagArtwork: {fileID: 21300000, guid: 45bf331ef46604548a6fe5523656e2d4, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Budapest
+  m_EditorClassIdentifier: 
+  cityID: 10
+  neighbors: 02000000090000000b000000
+  cityName: Budapest
+  population: 1.700.000
+  countryName: Hungary
+  virusInfo: {fileID: 11400000, guid: f02309e6a1a1dba4a9c7e50a15c36d0e, type: 2}
+  mainArtwork: {fileID: 807078839569274471, guid: cd0a47629d027054ab47a5008d4b26bb, type: 3}
+  flagArtwork: {fileID: 21300000, guid: d5017ee6e51a0754ebb6b9df6ed9a734, type: 3}

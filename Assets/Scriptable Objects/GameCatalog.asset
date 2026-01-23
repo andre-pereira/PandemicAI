@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dd94a4540585a4ea0dd9923a9be7bc, type: 3}
+  m_Name: GameCatalog
+  m_EditorClassIdentifier: 
+  VirusInfos:
+  - {fileID: 11400000, guid: da69709b28dd74c44be7d4c05734fff8, type: 2}
+  - {fileID: 11400000, guid: f02309e6a1a1dba4a9c7e50a15c36d0e, type: 2}
+  - {fileID: 11400000, guid: 124bbd9c3c093494f8709abd22e318cb, type: 2}
+  RoleCards:
+  - {fileID: 11400000, guid: f03aa75a491e23d4a833bbba5478abce, type: 2}
+  - {fileID: 11400000, guid: c44201dac8bd2cb44b138e0d4174cf9b, type: 2}
+  cubeOffsetRed:
+  - {x: 1.4, y: -0.47}
+  - {x: 1.4, y: -0.72}
+  - {x: 1.4, y: -0.97}
+  cubeOffsetYellow:
+  - {x: 0.92, y: -0.67}
+  - {x: 0.92, y: -0.92}
+  - {x: 0.92, y: -1.17}
+  cubeOffsetBlue:
+  - {x: 0.44, y: -0.47}
+  - {x: 0.44, y: -0.72}
+  - {x: 0.44, y: -0.97}
+  pawnOffsets:
+  - {x: -0.27, y: 1.22}
+  - {x: 0.27, y: 1.22}

@@ -1,0 +1,1712 @@
+[
+   {
+    "eventType": "EInitializeFirstPlayer",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Hello, my name is Nora. Let's play a game of pandemic together! The board is already set up for us to play. It looks like I'm going to be the first one to play |gesture(Smile)|"
+    ],
+    "userTurnBehaviors": [
+      "Hello, my name is Nora. Let's play a game of pandemic together! The board is already set up for us to play. It's your turn to start, |var(name)|! |gesture(Smile)|"
+    ]
+  },
+  {
+    "eventType": "EDrawInfectionCard",
+    "relevance": 0.5,
+    "conditions": [
+      {
+        "value": "epidemic",
+        "engineTurnBehaviors": [
+          "|gestureBlock(Surprise)| Epidemic!"
+        ]
+      },
+      {
+        "value": "regular",
+        "engineTurnBehaviors": [
+          "Oh, |var(city)|",
+          "|var(city)| |gesture(Surprise)|",
+          "Ah",
+          "|var(city)|",
+          "Hmm... |var(city)|",
+          "|var(city)|",
+          "|gesture(Nod)| |var(city)|",
+          "|var(city)|"
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "EEpidemicInitiate",
+    "relevance": 1,
+    "conditions": [
+      {
+        "value": "first",
+        "aiTurnBehaviors": [
+          "Uh oh! Here comes an epidemic |gestureBlock(Nod)|",
+          "|event(lookAtBoard)| An epidemic card!",
+          "Crisis time! |gestureBlock(Blink)|",
+          "It's an epidemic! |gestureBlock(Surprise)|",
+          "An epidemic! |gesture(ExpressFear)| We need to stay strong.",
+          "Time for some careful planning, |var(name)|. |gestureBlock(BrowRaise)|",
+          "Don't worry, let's do our best.",
+          "|event(lookAtBoard)|",
+          "|gestureBlock(Wink)|"
+        ]
+      },
+      {
+        "value": "second",
+        "aiTurnBehaviors": [
+          "Oh no! Another epidemic!",
+          "|gestureBlock(Nod)| Not another one!",
+          "Uh oh, another epidemic.",
+          "Another epidemic!",
+          "Second epidemic!",
+          "|gesture(Surprise)| Another epidemic!",
+          "|event(lookAtBoard)|",
+          "We need a solid plan, |var(name)|.",
+          "Oh dear, another epidemic!",
+          "|gestureBlock(Smile)| Stay calm - we've got this."
+        ]
+      },
+      {
+        "value": "third",
+        "aiTurnBehaviors": [
+          "|gestureBlock(ExpressFear)|",
+          "Oh dear, another epidemic!",
+          "|event(lookAtBoard)|",
+          "Brace yourselves, friends.",
+          "|gestureBlock(Shake)|",
+          "We need to act fast.",
+          "|event(lookAtUser)|",
+          "|gestureBlock(Wink)|",
+          "We can get through this crisis.",
+          "Don't worry, let's do our best."
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "EIncreaseInfectionRate",
+    "relevance": 0.6,
+    "conditions": [
+      {
+        "value": "noChange",
+        "aiTurnBehaviors": [
+          "At least there is no increase in infection rate |gesture(Smile)|",
+          "The situation's under control. The infection rate remains the same. |gestureBlock(Nod)|",
+          "No change to the infection rate |event(lookAtUser)|",
+          "The infection rate marker is still on two. |gestureBlock(Nod)|",
+          "The infection rate is stable. |gestureBlock(Smile)|",
+          "The infection rate is unchanged. |gestureBlock(Nod)|",
+          "Alright, at least the infection rate did not go up",
+          "|gestureBlock(Smile)|",
+          "|event(lookAtBoard)|"
+        ]
+      },
+      {
+        "value": "increased",
+        "aiTurnBehaviors": [
+          "The infection rate just went up. |gesture(BrowFrown)|",
+          "Infection rate increased. We're in a tougher spot now.",
+          "Now there will be one more infected city each turn. |gestureBlock(ExpressSad)|",
+          "The infection rate has gone up! |gestureBlock(Oh)|",
+          "The infection rate is now at |var(infectionRate)| |gestureBlock(BrowFrown)|",
+          "The infection rate rose to |var(infectionRate)| |gestureBlock(ExpressSad)|",
+          "|event(lookAtBoard)|",
+          "|gestureBlock(Oh)| The infection rate has gone up!",
+          "|event(lookAtBoard)|",
+          "|gestureBlock(ExpressSad)"
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "EIncreaseOutbreak",
+    "relevance": 0.9,
+    "aiTurnBehaviors": [
+      
+      "|gestureBlock(ExpressSad)| Oh no! An outbreak!",
+      "More outbreaks will get the marker down to the red skull",
+      "|gesture(ExpressFear)| If the marker reaches the bottom we lose the game",
+      "Stay calm, |var(name)|, we'll handle this together",
+      "We should really try to mitigate more outbreaks",
+      "We cannot have that many more outbreaks",
+      "Outbreak uh-oh! |gestureBlock(ExpressSad)|"
+    ]
+  },
+  {
+    "eventType": "EOutbreak",
+    "relevance": 0.9,
+    "aiTurnBehaviors": [
+      "|gestureBlock(BigSmile)| Whoops, we need to take care of that",
+      "Oh no! There's an outbreak!",
+      "|gestureBlock(Oh)|",
+      "Don't worry, |var(name)|, we're in this together."
+    ]
+  },
+  {
+    "eventType": "EIntensify",
+    "relevance": 0.3,
+    "aiTurnBehaviors": [
+      
+      "Now the cities that were already infected will get infected again, since they are on the top of the infection deck |gestureBlock(ExpressSad)|",
+      "Let's not lose hope, |var(name)| |gestureBlock(BigSmile)|"
+    ]
+  },
+  {
+    "eventType": "EGameOver",
+    "relevance": 1,
+    "conditions": [
+      {
+        "value": "PlayersWon",
+        "aiTurnBehaviors": [
+          "|gestureBlock(Surprise)| It looks like we won! |event(lookAtUser)| |gestureBlock(BigSmile)|",
+          "We did it! We saved Europe!",
+          "|gestureBlock(BigSmile)|",
+          "Well done! Victory is ours!",
+          "|event(lookAtBoard)| We won the game! |gestureBlock(Smile)|",
+          "All the viruses are contained. Great teamwork!",
+          "We brought peace back to Europe. |gesture(Nod)|",
+          "What a fantastic victory! |gestureBlock(BigSmile)|",
+          "At one point, I was worried, |gesture(Blink)| but you pulled through.",
+          "This feels fantastic! |gestureBlock(Oh)| Isn't that right, |var(name)|?",
+          "Congratulations! Time to celebrate!",
+          "Remarkable strategy. I'm impressed.",
+          "Together, we beat every challenge.",
+          "Your teamwork was amazing! |gesture(Nod)|"
+        ]
+      },
+      {
+        "value": "TooManyOutbreaks",
+        "aiTurnBehaviors": [
+          "Too many outbreaks - it's over",
+          "We've hit our outbreak limit",
+          "The outbreaks got the best of us",
+          "Our efforts couldn't contain the outbreks |gestureBlock(ExpressSad)|",
+          "It was a good effort, |var(name)|",
+          "We've learned something for next time",
+          "Our mission ends here today",
+          "The outbreak overwhelmed us... |gestureBlock(ExpressSad)|",
+          "We'll regroup and try again I guess...",
+          "Remember, victories come from learning"
+        ]
+      },
+      {
+        "value": "NoMoreCubesOfAColor",
+        "aiTurnBehaviors": [
+          "Oh no, we're out of cubes |gestureBlock(ExpressSad)|",
+          "We've run out of resources |event(lookAtBoard)|",
+          "The virus has overtaken us |gesture(ExpressFear)|",
+          "We need to regroup for another try |gestureBlock(ExpressSad)|",
+          "|var(name)|, we need to stay strong",
+          "This round is over. We'll get them next time |gesture(Nod)|",
+          "Let's look at our strategy and improve it",
+          "We'll need to rethink our approach |event(lookAtUser)|",
+          "We've learned valuable lessons today |gesture(Smile)|",
+          "Let's prepare for our next attempt |gestureBlock(Oh)|"
+        ]
+      },
+      {
+        "value": "NoMorePlayerCards",
+        "aiTurnBehaviors": [
+          "|gestureBlock(BrowFrown)| We ran out of cards",
+          "We've run out of player cards",
+          "|event(lookAtBoard)| The game is over |gestureBlock(ExpressSad)|",
+          "We lost because we ran out of cards",
+          "The player cards are all gone",
+          "Let's regroup and try again",
+          "|event(lookAtUser)| We were so close, |var(name)|",
+          "That's unfortunate. Let's review our strategy and do better next time",
+          "We'll beat it next time, |var(name)|",
+          "|event(lookAtBoard)| We'll learn from this loss."
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "GCharterActionClicked",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "What's your next move? |gesture(Nod)|",
+      "Planning to take a charter flight?",
+      "Charter action - excellent choice. |gesture(Smile)|",
+      "Would flying help your strategy, |var(name)|?",
+      "Going somewhere important, I see. |gestureBlock(Nod)|",
+      "Are you traveling to cure a city?",
+      "Chartering to reach a trouble spot?",
+      "Keep an eye on outbreaks. |event(lookAtBoard)|"
+    ]
+  },
+  {
+    "eventType": "GCityCardClicked",
+    "relevance": 0.1,
+    "conditions": [
+      {
+        "value": "Discarding",
+        "userTurnBehaviors": [
+          "|gestureBlock(BrowRaise)|",
+          "|gestureBlock(Smile)|",
+          "|event(lookAtBoard)|",
+          "|var(name)|, are you sure about that discard?",
+          "|gesture(BrowFrown)|",
+          "|event(lookAtUser)|",
+          "Be careful when discarding.",
+          "|gesture(Nod)|",
+          "|gestureBlock(Blink)|",
+          "I trust your decision to discard that",
+          "|gestureBlock(BigSmile)|"
+        ]
+      },
+      {
+        "value": "FindingCure",
+        "userTurnBehaviors": [
+          "Let's check that |var(cityCard)| card together.",
+          "|gestureBlock(ExpressFear)| How does |var(cityCard)| help us?",
+          "|gestureBlock(BrowRaise)| Ah, a |var(cityCard)| card! Interesting choice.",
+          "This card might be important, don't you think?",
+          "|gestureBlock(Smile)| We need this |var(cityCard)| for the cure.",
+          "|event(lookAtBoard)| We should focus on collecting more cards.",
+          "|gestureBlock(Blink)| Let's see what |var(cityCard)| can do for us.",
+          "|event(lookAtUser)| Do you have a plan for this card?",
+          "|gestureBlock(Oh)| That's a bold move with |var(cityCard)|!"
+        ]
+      },
+      {
+        "value": "Flying",
+        "userTurnBehaviors": [
+          "|gestureBlock(Smile)| Nice choice! Flying to |var(cityCard)| looks promising.",
+          "|event(lookAtBoard)| Let's see what's happening in |var(cityCard)| when you get there.",
+          "|gestureBlock(Nod)| Flying to |var(cityCard)| could be a smart move.",
+          "Curious about what you'll find in |var(cityCard)|? |gesture(BrowRaise)|",
+          "|gestureBlock(Surprise)| Flying to |var(cityCard)| might change the game!",
+          "|event(lookAtUser)| |gestureBlock(BigSmile)| That could help our position in |var(cityCard)|",
+          "Did you plan this move to |var(cityCard)|, |var(name)|? |gesture(Wink)|",
+          "|gestureBlock(Oh)| That gets us closer to managing the outbreak in |var(cityCard)|",
+          "Flying to |var(cityCard)| is a strategic choice. |gesture(Nod)|",
+          "|gesture(Roll)| Let's check the situation in |var(cityCard)| and adjust our strategy."
+        ]
+      },
+      {
+        "value": "LookingAtCards",
+        "userTurnBehaviors": [
+          "|gestureBlock(GazeAway)|",
+          "Thinking about our next step.",
+          "|event(lookAtUser)|",
+          "Do you need advice, |var(name)|?",
+          "|gestureBlock(Smile)|",
+          "Ah, |var(cityCard)| - nice choice!",
+          "|event(lookAtBoard)|",
+          "Think about where it fits best.",
+          "|gestureBlock(Nod)|",
+          "Keep an eye on the map.",
+          "|gesture(BrowRaise)|",
+          "Is |var(cityCard)| useful for research?",
+          "|gesture(Smile)|",
+          "Let's plan our strategy with that card.",
+          "|event(lookAtUser)|",
+          "Ready to play?",
+          "|gestureBlock(Blink)|",
+          "|event(lookAtBoard)|",
+          "So many options with |var(cityCard)|.",
+          "|gestureBlock(GazeAway)|",
+          "What do you think, |var(name)|?"
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "GCityClicked",
+    "relevance": 0.1,
+    "conditions": [
+      {
+        "value": "Treat",
+        "userTurnBehaviors": [
+          "Let's remove a cube from |var(city)|. |gesture(Nod)|",
+          "Great choice! This helps us control the outbreak in |var(city)|. |gesture(Smile)|",
+          "|event(lookAtBoard)| Smart move treating here. |gestureBlock(Nod)|",
+          "|event(lookAtUser)| One step closer to victory!",
+          "|gesture(Oh)| Well done! |var(city)| is safer now.",
+          "That was an important treat action in |var(city)|. |event(lookAtBoard)|",
+          "|gestureBlock(Nod)| |event(lookAtUser)| Keep up the good work!",
+          "|gesture(Smile)| |event(lookAtBoard)| I'm proud of your strategic play.",
+          "|event(lookAtUser)| You chose wisely, |var(name)|! |gestureBlock(BigSmile)|",
+          "|gestureBlock(BrowRaise)| |event(lookAtUser)| Your actions are making a difference."
+        ]
+      },
+      {
+        "value": "NotDoingAnything",
+        "userTurnBehaviors": [
+          "What do you see in |var(city)|? |gestureBlock(Wink)|",
+          "You're exploring |var(city)|. |event(lookAtBoard)|",
+          "So, what's your plan, |var(name)|? |gesture(Smile)|",
+          "Remember, |var(city)| is in the |var(cityColor)| zone. |gesture(Nod)|",
+          "What's your next move here? |gestureBlock(Blink)|",
+          "Are there any actions you want to take? |event(lookAtUser)|",
+          "|var(city)| could be important in your strategy. |gesture(Nod)|",
+          "Think about the disease cubes in |var(city)|. |gestureBlock(Oh)|",
+          "What are your thoughts on treating here? |event(lookAtBoard)|",
+          "Checking out |var(city)| - interesting choice! |gesture(Smile)|"
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "GCureActionClicked",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "We should work on the |var(cureColor)| cure. |gesture(Nod)|",
+      "Ready to develop the |var(cureColor)| cure? |gesture(Smile)|",
+      "|gestureBlock(GazeAway)| What's your strategy for this cure?",
+      "The |var(cureColor)| cure is within reach. |gesture(BrowRaise)|",
+      "|event(lookAtUser)| Do you need help with that decision, |var(name)|?",
+      "Great choice focusing on the |var(cureColor)| cure. |event(lookAtBoard)|",
+      "|gestureBlock(Smile)| Teamwork will help us succeed.",
+      "Let's make sure we're working together. |event(lookAtBoard)|",
+      "|gestureBlock(Blink)| How can I help you?",
+      "|event(lookAway)| The |var(cureColor)| cure is important right now. |gesture(CloseEyes)|"
+    ]
+  },
+  {
+    "eventType": "GEndTurnActionClicked",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "Great move, |var(name)|! Should we continue?",
+      "It's your turn next |event(lookAtBoard)|",
+      "Let's see what happens now! |gestureBlock(Smile)|",
+      "I'm excited about our progress. |gestureBlock(BigSmile)|",
+      "|event(lookAway)| What's your next strategy?",
+      "Are we ready for the next step?",
+      "Excited to see what you do next. |event(lookAtUser)|",
+      "Let's see how the board changes.",
+      "Your turn is done. What now? |gesture(Nod)|",
+      "|gestureBlock(Roll)| What will your next action be?"
+    ]
+  },
+  {
+    "eventType": "GFlyActionClicked",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "|gestureBlock(Smile)|",
+      "|gestureBlock(Nod)|",
+      "Make sure you have enough cards. |event(lookAtBoard)|",
+      "Planning our next move, |var(name)|?",
+      "|gesture(BrowRaise)|",
+      "|gestureBlock(Wink)|",
+      "Ready for the next adventure?",
+      "|gesture(Surprise)|",
+      "|event(lookAtUser)|",
+      "Think carefully about your destination.",
+      "|gestureBlock(Smile)|"
+    ]
+  },
+  {
+    "eventType": "GMoveActionClicked",
+    "relevance": 0.01,
+    "userTurnBehaviors": [
+      "That's a strategic move! |gesture(Smile)|",
+      "|gestureBlock(Nod)| Let's see what happens next.",
+      "|event(lookAtBoard)| You might want to consider treating the disease in this area.",
+      "Nice choice, |var(name)|! |gesture(BigSmile)|",
+      "Do you have a plan for your next move? |gesture(Roll)|",
+      "|gestureBlock(Surprise)| Let's wait and see.",
+      "Is there anything else to handle now? |gesture(Blink)|",
+      "You're getting closer to a solution.",
+      "|gestureBlock(OpenEyes)| Great position for your next action.",
+      "|event(lookAtUser)| Your turn is important."
+    ]
+  },
+  {
+    "eventType": "GPawnClicked",
+    "relevance": 0.01,
+    "userTurnBehaviors": [
+      "That's a good choice. |gesture(Nod)|",
+      "Interesting move, |var(name)|. |event(lookAtUser)|",
+      "|event(lookAtBoard)| Let's see how that works.",
+      "Your turn looks promising |event(lookAtUser)| |gesture(Smile)|",
+      "|gestureBlock(Blink)| That spot needs attention."
+    ]
+  },
+  {
+    "eventType": "GShareActionClicked",
+    "relevance": 0.9,
+    "conditions": [
+      {
+        "value": "TakingCardFromMe",
+        "userTurnBehaviors": [
+          "Alright, I'll give you the |var(cityCard)|",
+          "|gestureBlock(Nod)| I trust your strategy",
+          "|gesture(Smile)| Sharing cards builds our strength together |gesture(Wink)|",
+          "|gestureBlock(Oh)| That's a strategically sound choice",
+          "Take the |var(cityCard)| then"
+        ]
+      },
+      {
+        "value": "GivingMeCard",
+        "userTurnBehaviors": [
+          "Thank you for sharing! |gesture(Smile)|",
+          "I'll take that, thanks! |event(lookAtUser)|",
+          "Oh, it's the |var(cityCard)| card",
+          "Great choice, |var(name)|! |gesture(Smile)|",
+          "Strategy is key in this game. |gesture(Nod)|",
+          "I appreciate the teamwork."
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "GTreatActionClicked",
+    "relevance": 0.01,
+    "userTurnBehaviors": [
+      "That's a wise move, |var(name)| |gesture(Smile)|",
+      "|gesture(Smile)|",
+      "Nice",
+      "|gestureBlock(Nod)| Let's reduce the infection!",
+      "|gesture(Smile)|",
+      "|event(lookAtBoard)|",
+      "Brilliant! Every bit helps. |event(lookAtUser)|",
+      "Nice"
+    ]
+  },
+  {
+    "eventType": "GCardStateChange",
+    "relevance": 0.8,
+    "userTurnBehaviors": [
+      "|var(name)|, it looks like you’re holding too many cards. |event(lookAtUser)| |gesture(Smile)|",
+      "|var(name)|, you have too many cards. |event(lookAtUser)| |gesture(Smile)|",
+      "I think |event(lookAtUser)| you need to discard a card",
+      "Too many cards in your hand, |var(name)| |event(lookAtUser)|"
+    ]
+  },
+  {
+    "eventType": "PCharterEvent",
+    "relevance": 0.3,
+    "aiTurnBehaviors": [
+      "|gesture(Nod)|",
+      "|gesture(BigSmile)|"
+    ],
+    "userTurnBehaviors": [
+      "|event(lookAtUser)| |gestureBlock(Smile)|",
+      "Good move, |var(name)|!",
+      "|event(lookAtUser)|",
+      "|event(lookAtBoard)|",
+      "|gesture(Nod)| Yeah",
+      "|gestureBlock(BrowRaise)|",
+      "|gestureBlock(Nod)| Nice",
+      "|event(lookAtBoard)|",
+      "|var(flyTo)|, nice choice!",
+      "|gestureBlock(Wink)| A wise travel choice!"
+    ]
+  },
+  {
+    "eventType": "PContainSpecialistRemoveWhenEntering",
+    "relevance": 0.6,
+    "userTurnBehaviors": [
+      "|gesture(Nod)|",
+      "That's a great move, |var(name)|.",
+      "It's nice that you can treat while moving |gesture(BlockSmile)|",
+      "|event(lookAtUser)| |gesture(Wink)|",
+      "Good choice! |gestureBlock(Smile)|",
+      "|event(lookAtBoard)|",
+      "Nice! |gestureBlock(Nod)|",
+      "|gesrure(BigSmile)| |event(lookAtUser)|",
+      "You're really good at this. |gesture(ExpressSurprise)|",
+      "Keep up the good work! |gesture(Smile)|"
+    ]
+  },
+  {
+    "eventType": "PQuarantineSpecialistPrevention",
+    "relevance": 0.5,
+    "userTurnBehaviors": [
+      "|gestureBlock(BigSmile)|",
+      "My role just blocked the disease from spreading. |event(lookAtUser)|",
+      "|gestureBlock(BrowRaise)|"
+    ]
+  },
+  {
+    "eventType": "PCureDisease",
+    "relevance": 0.9,
+    "userTurnBehaviors": [
+      "Excellent choice! Go ahead and cure |var(cureColor)| |gesture(Smile)|",
+      "|gestureBlock(Nod)| That's one less disease to worry about.",
+      "|event(lookAtUser)| Well done. Keep it up!",
+      "|gestureBlock(BrowRaise)| Great! The situation looks more hopeful now",
+      "Impressive! |gesture(Oh)|",
+      "|event(lookAtBoard)| That was a smart decision, |var(name)|.",
+      "Our chances just got better |gesture(Smile)|"
+    ]
+  },
+  {
+    "eventType": "PDealCard",
+    "relevance": 0.5,
+    "conditions": [
+      {
+        "value": "regular",
+        "aiTurnBehaviors": [
+          "Interesting, I got a |var(cityCard)| card.",
+          "|gestureBlock(Blink)| |var(cityCard)|",
+          "|gestureBlock(BigSmile)| |var(cityCard)|!",
+          "Let's keep this |var(cityColor)| card handy.",
+          "|var(cityCard)|",
+          "Excellent, it's |var(cityCard)|.",
+          "|gestureBlock(Smile)| I drew the |var(cityCard)| card.",
+          "|gestureBlock(Wink)|"
+        ],
+        "userTurnBehaviors": [
+          "You drew the |var(cityCard)| card. |gesture(Smile)|",
+          "Consider trading the |var(cityCard)|?",
+          "|event(lookAtBoard)|",
+          "|var(cityCard)|",
+          "A |var(cityColor)| card can be useful.",
+          "|gesture(Nod)| Keep this card in mind for trading.",
+          "|gestureBlock(Blink)|"
+        ]
+      },
+      {
+        "value": "possibleToFindCure",
+        "aiTurnBehaviors": [
+          "Nice! Now I can find the |var(cityColor)| cure! |gestureBlock(Smile)|",
+          "We will need the |var(cityCard)| card for the cure",
+          "|var(cityColor)|, nice! Now I will be able to find the cure",
+          "|event(lookAtBoard)| This card will lead to a cure",
+          "|gestureBlock(Blink)| Now I can find the |var(cityColor)| cure!"
+        ],
+        "userTurnBehaviors": [
+          "|var(name)| you drew |var(cityCard)| |event(lookAtUser)| Now you can find the cure!",
+          "|gestureBlock(Blink)| This |var(cityColor)| card brings us closer to victory",
+          "Now we can work on the |var(cityColor)| cure. |gesture(Smile)|",
+          "That card's important for the |var(cityColor)| cure.",
+          "Your turn is going well. |event(lookAtUser)|",
+          "You're doing fantastic. Keep going! |gesture(Nod)|"
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "PDiscardCard",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "|gestureBlock(BrowRaise)|",
+      "|gestureBlock(BrowFrown)|"
+    ]
+  },
+  {
+    "eventType": "PFlyToCity",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "|gestureBlock(Smile)|",
+      "|event(lookAtBoard)|",
+      "|gestureBlock(Nod)|",
+      "|gestureBlock(Wink)|"
+    ]
+  },
+  {
+    "eventType": "PMoveEvent",
+    "relevance": 0.001,
+    "aiTurnBehaviors": [
+      "I've moved to |var(toCity)| now |event(lookAtUser)|",
+      "I'm in |var(toCity)|",
+      "|var(toCity)|",
+      "|var(toCity)|",
+      "|gesture(Smile)|"
+    ],
+    "userTurnBehaviors": [
+      "|var(toCity)|",
+      "|gesture(BrowRaise)|",
+      "|gestureBlock(Nod)|"
+    ]
+  },
+  {
+    "eventType": "PNewTurn",
+    "relevance": 0.8,
+    "aiTurnBehaviors": [
+      "|event(lookAtBoard)| It's my turn now |gesture(Smile)|",
+      "|event(lookAtBoard)| Let's see the board",
+      "|event(lookAtBoard)| Considering my next move |gesture(BrowRaise)|",
+      "|event(lookAtBoard)| I'll strategize carefully |gesture(CloseEyes)|",
+      "|event(lookAtBoard)| Analyzing possible actions |gesture(Oh)| ",
+      "|event(lookAtBoard)| Cooperation is key, |var(name)| |gesture(Wink)|",
+      "|event(lookAtBoard)| Let's protect Europe together |gestureBlock(BigSmile)|"
+    ],
+    "userTurnBehaviors": [
+      "Your turn now, |var(name)| |gesture(Smile)|",
+      "Let's see what you can do |event(lookAtUser)|",
+      "Plan your movements carefully |gesture(Nod)|",
+      "It's time to make a move |gestureBlock(Blink)|",
+      "|event(lookAtUser)| |gesture(BrowRaise)|",
+      "Your move |gesture(Smile)|",
+      "|event(lookAtUser)| |gesture(Smile)|"
+    ]
+  },
+  {
+    "eventType": "PShareKnowledge",
+    "relevance": 0.8,
+    "conditions": [
+      {
+        "value": "TakingCardFromMe",
+        "userTurnBehaviors": [
+          "Here you go |event(lookAtUser)|",
+          "Here, take my |var(cityCard)| card.",
+          "You could use this card for the cure |gesture(Smile)|",
+          "I trust you'll make a smart move |gesture(Nod)|",
+          "|gestureBlock(Blink)|",
+          "Take it, and let's win this |event(lookAway)|",
+          "Always happy to help out! |gestureBlock(BigSmile)|"
+        ]
+      },
+      {
+        "value": "GivingMeCard",
+        "userTurnBehaviors": [
+          "|gestureBlock(BigSmile)|",
+          "|gesture(Nod)| |event(lookAtUser)|",
+          "|event(lookAtBoard)| |var(cityCard)| |event(lookAtUser)| thanks!",
+          "|gestureBlock(Smile)|",
+          "|var(cityCard)|",
+          "|gesture(BrowRaise)|",
+          "Great call, |var(name)|! This will help us a lot.",
+          "Exchanging |var(cityCard)| is a smart move.",
+          "I'll handle |var(cityCard)| now. Thank you.",
+          "This exchange brings us closer to winning."
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "PTreatDisease",
+    "relevance": 0.1,
+    "userTurnBehaviors": [
+      "|gestureBlock(Nod)|",
+      "Great choice, treating disease",
+      "|event(lookAtUser)|",
+      "|gesture(Smile)|",
+      "|gestureBlock(Blink)|",
+      "|gestureBlock(Oh)|",
+      "A good step forward, |var(name)|.",
+      "|gesture(Nod)|",
+      "Removing cubes weakens the disease.",
+      "|gestureBlock(Surprise)|",
+      "It's getting safer now!"
+    ]
+  },
+  {
+    "eventType": "RCharterPlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Let's charter a flight |event(clickActionButton)|",
+      "|gestureBlock(Blink)| I'll head to |var(toCity)| now |event(clickActionButton)|",
+      "|gestureBlock(Smile)| Chartering to |var(toCity)| |event(clickActionButton)|",
+      "Taking off to |var(toCity)| |event(clickActionButton)|",
+      "Flying from |var(fromCity)| |gesture(Nod)| |event(clickActionButton)|",
+      "|event(clickActionButton)| |gesture(Nod)|",
+      "Moving from |var(fromCity)| to |var(toCity)| |gesture(Smile)| |event(clickActionButton)|",
+      "|gestureBlock(BrowRaise)| I'm chartering to |var(toCity)| |event(clickActionButton)|",
+      "|gesture(Smile)| |event(clickActionButton)|",
+      "|var(toCity)| |event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RCharterDragPawn",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(dragPawn)|",
+      "|event(dragPawn)|",
+      "|event(dragPawn)|",
+      "|gestureBlock(BigSmile)| |event(dragPawn)|",
+      "|event(dragPawn)|",
+      "Let's go |event(dragPawn)| to |var(toCity)|",
+      "|event(dragPawn)|",
+      "Alright, leaving |var(fromCity)| |event(dragPawn)|",
+      "|event(dragPawn)| There we go",
+      "|event(dragPawn)|"
+    ]
+  },
+  {
+    "eventType": "RMovePlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "I will move from |var(fromCity)| to |var(toCity)| |event(clickActionButton)|",
+      "|event(clickActionButton)| |gesture(Smile)|",
+      "|event(clickActionButton)|",
+      "|gestureBlock(Nod)| It's time to move |event(clickActionButton)|",
+      "|var(toCity)| |event(clickActionButton)|",
+      "Ok |event(clickActionButton)|",
+      "|event(clickActionButton)| I will leave |var(fromCity)| |gesture(Roll)|",
+      "|gestureBlock(Smile)| Watch this move, |var(name)| |event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RMoveDragPawn",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(dragPawn)|",
+      "Let's head from |var(fromCity)| to |var(toCity)|. |gestureBlock(Nod)| |event(dragPawn)|",
+      "|var(toCity)| |event(dragPawn)|",
+      "|gestureBlock(Nod)| Ok |event(dragPawn)|",
+      "Yeah |event(dragPawn)|",
+      "|event(lookAtBoard)| Where is |var(toCity)|... |gestureBlock(OpenEyes)| |event(dragPawn)|",
+      "|event(dragPawn)|",
+      "|event(dragPawn)|",
+      "|event(dragPawn)|",
+      "|event(dragPawn)|"
+    ]
+  },
+  {
+    "eventType": "RFlyPlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Flying from |var(fromCity)| to |var(toCity)| |event(clickActionButton)|",
+      "I'll move to |var(toCity)| now |gesture(Smile)| |event(clickActionButton)|",
+      "Strategic relocation: |var(fromCity)| to |var(toCity)| |gesture(Nod)| |event(clickActionButton)|",
+      "|gestureBlock(Wink)| Off to |var(toCity)| we go. |event(clickActionButton)|",
+      "|gestureBlock(Nod)| Heading to |var(toCity)| for our next move. |event(clickActionButton)|",
+      "Changing locations. Destination: |var(toCity)| |event(clickActionButton)|",
+      "Traveling quickly to |var(toCity)| |event(clickActionButton)|",
+      "|gestureBlock(Smile)| From |var(fromCity)| to |var(toCity)| for better strategy. |event(clickActionButton)|",
+      "|gestureBlock(Blink)| Flying towards |var(toCity)| |event(clickActionButton)|",
+      "|var(name)|, I will fly to |var(toCity)|  |event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RFlySelectDestination",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Let's choose our destination |event(clickCard)| ",
+      "|event(clickCard)| Ok |gestureBlock(Smile)|",
+      "|event(clickCard)|",
+      "|event(clickCard)| |gestureBlock(Nod)|"
+    ]
+  },
+  {
+    "eventType": "RFlyAccept",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|gestureBlock(Nod)| |event(clickAccept)|",
+      "|gestureBlock(Smile)| |event(clickAccept)|",
+      "|gestureBlock(Wink)| |event(clickAccept)|",
+      "Here we go! |gesture(Surprise)| |event(clickAccept)|",
+      "|gestureBlock(Nod)| |event(clickAccept)|"
+    ]
+  },
+  {
+    "eventType": "RSharePlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Let's trade cards. |event(clickActionButton)|",
+      "|gestureBlock(Blink)| |event(clickActionButton)|",
+      "|gestureBlock(Nod)| |event(clickActionButton)|",
+      "|gestureBlock(Smile)| |event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RShareAccept",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|gesture(Nod)| |event(clickAccept)|",
+      "|gesture(Smile)| |event(clickAccept)|",
+      "|event(clickAccept)| |gesture(Nod)|",
+      "|event(clickAccept)|",
+      "|gestureBlock(Blink)| |event(clickAccept)|",
+      "Click! |gesture(Smile)| |event(clickAccept)|",
+      "|gestureBlock(Nod)| |event(clickAccept)|",
+      "|gesture(Smile)| |event(clickAccept)|",
+      "With |var(cityColor)|, we can find a cure. |event(clickAccept)| |gestureBlock(Nod)|"
+    ]
+  },
+  {
+    "eventType": "RTreatPlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|gestureBlock(Blink)| Time to treat a disease. |event(clickActionButton)|",
+      "Treating |var(cubeColor)| cube |event(clickActionButton)| |gesture(Smile)|",
+      "|var(city)| |event(clickActionButton)|",
+      "I'll remove a cube here |event(clickActionButton)| |gesture(Nod)|",
+      "|var(cubeColor)| cube |event(clickActionButton)| |gestureBlock(Wink)|",
+      "Curing effort in |var(city)| |event(clickActionButton)|",
+      "|event(clickActionButton)| |gestureBlock(BrowRaise)|",
+      "Ok |event(clickActionButton)| |gesture(OpenEyes)|",
+      "|event(clickActionButton)| |gestureBlock(BigSmile)|",
+      "Treat |event(clickActionButton)| |gesture(Oh)|"
+    ]
+  },
+  {
+    "eventType": "RTreatClickCube",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(clickCube)|",
+      "|event(clickCube)|",
+      "|gesture(Smile)| Yeah |event(clickCube)|",
+      "|event(clickCube)|",
+      "Ok |event(clickCube)|",
+      "|event(clickCube)|",
+      "|event(clickCube)|",
+      "One |event(clickCube)|",
+      "|gesture(Nod)| |event(clickCube)|",
+      "|event(clickCube)|"
+    ]
+  },
+  {
+    "eventType": "RTreatClickCubeAgain",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|gesture(Smile)| |event(clickCube)|",
+      "|gesture(Nod)| |event(clickCube)|",
+      "Nice |gestureBlock(BrowRaise)| |event(clickCube)|",
+      "|gesture(Nod)| |event(clickCube)|",
+      "|event(clickCube)| ",
+      "And one more |gestureBlock(BigSmile)| |event(clickCube)|",
+      "|gesture(OpenEyes)| |event(clickCube)|",
+      "|event(clickCube)|"
+    ]
+  },
+  {
+    "eventType": "RTreatClickCubeFinal",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|gestureBlock(Nod)| |event(clickCube)|",
+      "|event(clickCube)|",
+      "|event(clickCube)|",
+      "|event(clickCube)|",
+      "|gestureBlock(Blink)| |event(clickCube)|",
+      "|event(clickCube)|"
+    ]
+  },
+  {
+    "eventType": "RCurePlay",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(clickActionButton)|",
+      "I'll cure |var(cureColor)| |event(clickActionButton)|",
+      "|event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RCureSelectCardOne",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "One |event(clickCard)|",
+      "|var(cityCard)| |event(clickCard)|",
+      "|event(clickCard)|"
+    ]
+  },
+  {
+    "eventType": "RCureSelectCardTwo",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Two |event(clickCard)|",
+      "Next |var(cardColor)| card |event(clickCard)|",
+      "|event(clickCard)|"
+    ]
+  },
+  {
+    "eventType": "RCureSelectCardThree",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Three |event(clickCard)|",
+      "|var(cityCard)| |event(clickCard)|",
+      "Ok, now |var(cityCard)| |event(clickCard)|"
+    ]
+  },
+  {
+    "eventType": "RCureSelectCardFinal",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "Four |event(clickCard)|",
+      "And |var(cityCard)| |event(clickCard)|",
+      "|event(clickCard)|"
+    ]
+  },
+  {
+    "eventType": "RCureAccept",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(clickAccept)|",
+      "There we go |event(clickAccept)| |gesture(Nod)|",
+      "|event(clickAccept)|"
+    ]
+  },
+  {
+    "eventType": "RPlayEndTurn",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "I'll end my turn now |event(clickActionButton)|",
+      "I'll pass the turn to you |event(clickActionButton)|",
+      "|event(clickActionButton)| Turn completed. Over to you.",
+      "|event(clickActionButton)|"
+    ]
+  },
+  {
+    "eventType": "RDiscardClickCard",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "|event(clickCard)|",
+      "I'll discard the |var(cardColor)| card |event(clickCard)|",
+      "I hope we will not need this card |event(clickCard)|"
+    ]
+  },
+  {
+    "eventType": "RDiscardAccept",
+    "relevance": 1,
+    "aiTurnBehaviors": [
+      "I will discard the |var(cityCard)| |event(clickDiscard)| |gesture(Smile)|",
+      "|event(clickDiscard)|",
+      "|event(clickDiscard)|",
+      "|event(clickDiscard)|"
+    ]
+  },
+  {
+  "eventType": "RChangingPlan",
+  "relevance": 1,
+  "conditions": [
+    {
+      "value": "ShareKnowledge",
+      "aiTurnBehaviors": [
+        "Hmm... |event(lookAtBoard)| I guess I can prioritize sharing cards with you instead |gesture(Smile)|",
+        "Alright, I'll switch focus to making sure we can exchange cards |gesture(Nod)|",
+        "Ok, if sharing knowledge is the priority I'll adapt my plan |event(lookAtBoard)|",
+        "Fine, I'll hold off other moves and instead try to give you the card. |gesture(Smile)|",
+        "Changing plans then... I'll come over to share a card with you |event(lookAtBoard)|",
+        "Alright, instead of treating I'll help us by trading cards |gesture(Smile)|"
+      ]
+    },
+    {
+      "value": "FindCure",
+      "aiTurnBehaviors": [
+        "|event(lookAtBoard)| Ok, I will head toward Geneva to prioritize finding the cure |gesture(Smile)|",
+        "Fine, I'll change plans and move closer to Geneva |gesture(Nod)|",
+        "I see, I should focus on curing instead of other tasks. Heading for Geneva!",
+        "Got it, I'll adjust and go for the cure |gesture(Smile)|",
+        "Instead of my original plan, I'll work on finding the cure",
+        "Ok, the cure comes first now, I'll move toward Geneva |gesture(Nod)|"
+      ]
+    },
+    {
+      "value": "SafeguardOutbreak",
+      "aiTurnBehaviors": [
+        "If you think that there might be an outbreak I will prioritize treating in cities with 3 cubes |gesture(Smile)|",
+        "Alright, switching focus to prevent outbreaks instead |event(lookAtBoard)|",
+        "Ok, I'll treat the riskiest cities so we don't trigger an outbreak |gesture(Nod)|",
+        "You're right, I should safeguard against outbreaks first |gesture(Smile)|",
+        "Changing course, I'll handle the cities with three cubes |event(lookAtBoard)|",
+        "Alright, outbreak prevention takes priority now |gesture(Smile)|"
+      ]
+    },
+    {
+      "value": "SafeguardCubeSupply",
+      "aiTurnBehaviors": [
+        "Ok, maybe there are not enough |var(color)| cubes left. I will try to collect some |gesture(Smile)|",
+        "Hmm, running low on |var(color)| cubes... I'll adjust to fix that |event(lookAtBoard)|",
+        "Alright, let's make sure we don't run out of cubes. I'll change plans |gesture(Nod)|",
+        "Good point, I'll prioritize collecting |var(color)| cubes instead |gesture(Smile)|",
+        "Ok, I'll protect the supply of |var(color)| cubes |event(lookAtBoard)|",
+        "I'll change focus and refill our cube stock first |gesture(Smile)|"
+      ]
+    },
+    {
+      "value": "ManagingDisease",
+      "aiTurnBehaviors": [
+        "Alright, then I will treat some cubes",
+        "Fine, I'll drop my plan and just treat a few cubes |gesture(Nod)|",
+        "Ok, I'll handle the disease management for now |gesture(Smile)|",
+        "Sure, I can shift gears and take care of some cubes |event(lookAtBoard)|",
+        "Treating cubes it is, I'll leave the rest for later |gesture(Smile)|",
+        "Alright, I'll manage the disease spread instead of my earlier plan |gesture(Nod)|"
+      ]
+    }
+  ]
+},
+
+  {
+    "eventType": "RPlanDisclosure",
+    "relevance": 1,
+    "conditions": [
+      {
+        "value": "SafeguardCubeSupply",
+        "aiTurnBehaviors": [
+          "|event(lookAtBoard)| Hmm... I think there are not enough |var(cubeColor)| cubes left. I will try to collect some |gesture(Smile)|. What do you think? |event(lookAtUser)|",
+          "|event(lookAtBoard)| We're running low on |var(cubeColor)| cubes. I'll focus on restocking |gesture(Smile)| |event(lookAtUser)|",
+          "|event(lookAtBoard)| Not many |var(cubeColor)| cubes left... I'll will try to gather more |gesture(Nod)|",
+          "|event(lookAtBoard)| The supply of |var(cubeColor)| cubes is not looking healthy. I'll try to fix that.",
+          "|event(lookAtBoard)| I've noticed the |var(cubeColor)| cubes are nearly out. I'll try to fix it |gesture(Smile)|",
+          "|event(lookAtBoard)| We might be in trouble without more |var(cubeColor)| cubes. I'll try to get some.",
+          "|event(lookAtBoard)| There's a shortage of |var(cubeColor)| cubes. I'll plan my moves around fixing that |gestureBlock(Nod)|",
+          "|event(lookAtBoard)| Uh-oh, not enough |var(cubeColor)| cubes. I'll try to collect some before it's too late. |gesture(Blink)|",
+          "|event(lookAtBoard)| I see we're low on |var(cubeColor)| cubes. I'll make that a priority. |gestureBlock(BigSmile)|",
+          "|event(lookAtBoard)| Hmm. To avoid a crisis, I'll gather some more |var(cubeColor)| cubes. |gesture(Nod)|"
+        ]
+      },
+      {
+        "value": "SafeguardCubeSupply",
+        "aiTurnBehaviors": [
+          "|event(lookAtBoard)| Hmm... I think there are not enough |var(cubeColor)| cubes left. I will try to collect some |gesture(Smile)|. Do you agree? |event(lookAtUser)|",
+          "|event(lookAtBoard)| We're running low on |var(cubeColor)| cubes. I'll focus on restocking |event(lookAtUser)|",
+          "|event(lookAtBoard)| Not many |var(cubeColor)| cubes left... I'll will try to gather more |gesture(Nod)|",
+          "|event(lookAtBoard)| The supply of |var(cubeColor)| cubes is not looking healthy. I'll try to fix that.",
+          "|event(lookAtBoard)| I've noticed the |var(cubeColor)| cubes are nearly out. I'll try to fix it |gesture(Smile)|",
+          "|event(lookAtBoard)| We might be in trouble without more |var(cubeColor)| cubes. I'll try to get some.",
+          "|event(lookAtBoard)| There's a shortage of |var(cubeColor)| cubes. I'll plan my moves around fixing that |gestureBlock(Nod)|",
+          "|event(lookAtBoard)| Uh-oh, not enough |var(cubeColor)| cubes. I'll try to collect some before it's too late. |gesture(Blink)|",
+          "|event(lookAtBoard)| I see we're low on |var(cubeColor)| cubes. I'll make that a priority. |gestureBlock(BigSmile)|",
+          "|event(lookAtBoard)| Hmm. To avoid a crisis, I'll gather some more |var(cubeColor)| cubes. |gesture(Nod)|"
+        ]
+      },
+      {
+        "value": "SafeguardOutbreak",
+        "aiTurnBehaviors": [
+          "|event(lookAtBoard)| That city's not looking good... I'll head to |var(city)| and clean it up |gesture(Smile)|. Sounds like a good plan? |event(lookAtUser)|",
+          "|event(lookAtBoard)| Hmm, |var(city)| is close to popping. I'll take care of it |gesture(Blink)|",
+          "|event(lookAtBoard)| That's three |var(color)| cubes in |var(city)| I'll go fix it |gestureBlock(Nod)|",
+          "|event(lookAtBoard)| I'd rather stop an outbreak than deal with one. I'm going to |var(city)|. |gesture(Smile)|",
+          "|event(lookAtBoard)| I think we're pushing our luck in |var(city)| I'll move there to treat. |gesture(CloseEyes)|",
+          "|event(lookAtBoard)| I'll go to |var(city)| and try to calm things down. |gesture(BrowFrown)|",
+          "|event(lookAtBoard)| This looks like a good time to deal with |var(city)| before the infections spreads |gesture(Roll)|",
+          "|event(lookAtBoard)| I'll head to |var(city)| - feels like that's about to outbreak. |gestureBlock(Oh)|",
+          "|event(lookAtBoard)| Not a lot of margin left in |var(city)| I'll go there next. |gesture(Smile)|",
+          "|event(lookAtBoard)| I'll try to knock out some of those |var(color)| cubes before it's too late |gesture(Nod)|"
+
+        ]
+      },
+      {
+        "value": "ShareKnowledgeIllEndInCity",
+        "aiTurnBehaviors": [
+          "I'll move to |var(city)| now. |event(lookAtUser)| |var(name)| could you meet me there to exchange the |var(city)| card? |gesture(Smile)|",
+          "I'm heading to |var(city)| |var(name)| if you can get there next turn, we can share the |var(city)| card |gestureBlock(Nod)| What do you think? |event(lookAtUser)|",
+          "I'll be in |var(city)| at the end of my turn - would you be able to come there to swap the |var(city)| card? |event(lookAtUser)|",
+          "Going to |var(city)| so we can share knowledge. Could you meet me there to trade cards? |gesture(Smile)|",
+          "I think we should exchange cards. I'll end up in |var(city)|. If you come there, we can exchange the |var(city)| card. |gestureBlock(Blink)|",
+          "I'll head to |var(city)| now. Maybe you can join me and we can share the |var(city)| card? |gesture(Smile)|",
+          "Let's share knowledge! I will end my turn in |var(city)|. Could you make it there on yours so we can trade the card? |gesture(Nod)|",
+          "I think sharing knowledge is a good strategy. I'll wait in |var(city)| for you. Then we can do a card exchange. |gestureBlock(Oh)|",
+          "I'm planning to end in |var(city)|. If you're nearby, maybe we can swap the card then? |gesture(BrowRaise)|",
+          "To win we need to collect four cards of the same color. I will end my turn in |var(city)|. If you can get there, we can trade that card. |event(lookAtUser)|"
+]
+      },
+      {
+        "value": "ShareKnowledgeGiveYouACard",
+        "aiTurnBehaviors": [
+          "I think exchanging cards is smart. Maybe you could collect the |var(color)| cards? I'll give you the |var(city)| card. |event(lookAtUser)| Okay?",
+          "I will share the |var(city)| card with you. That way you can aim for the |var(color)| cure |event(lookAtUser)|",
+          "I'll give you the |var(city)| card - we might be able to cure |var(color)| that way. |gesture(Smile)|",
+          "You're already holding some |var(color)| cards, so I'll give you the |var(city)| card this turn. |gestureBlock(Oh)|",
+          "|var(name)|, I've got the |var(city)| card. If I give it to you, we're one step closer to curing |var(color)|. |gesture(Smile)|",
+          "I'll pass you the |var(city)| card. So you can go for the |var(color)| cure. |gesture(Nod)|",
+          "You've got a few |var(color)| cards already so I'll give you mine - it's the |var(city)| card. |event(lookAtUser)|",
+          "Let's try passing cards. I'll share the |var(city)| card with you. |gestureBlock(Blink)|",
+          "Sharing knowledge could help us win. I'll give you the |var(city)| card this turn, |var(name)|. |gesture(Smile)|",
+          "I've got the |var(city)| card and you're in a good spot to use it - I'll hand it over. |gestureBlock(Nod)|"
+        ]
+      },
+      {
+        "value": "ShareKnowledgeGiveYouACardSetComplete",
+        "aiTurnBehaviors": [
+          "I'll give you the |var(city)| card - that gives you all four to cure |var(color)|! |gesture(Smile)|",
+          "Once I share the |var(city)| card, you'll be able to cure |var(color)| Let's do it. |gestureBlock(Nod)|",
+          "You're one card away, and I've got it. I'll pass you the |var(city)| card |gesture(Smile)|",
+          "With the |var(city)| you'll have what you need to cure |var(color)| |gestureBlock(Blink)|",
+          "You'll be able to discover the |var(color)| cure once I share the |var(city)| card |gesture(Smile)|",
+          "|var(name)|, I'll give you the |var(city)| card. That should complete your set for |var(color)| |gesture(Nod)|",
+          "Looks like you're ready to cure |var(color)| - I just need to hand over the |var(city)| card |event(lookAtUser)|",
+          "I've got the last card you need. I'll share the |var(city)| card so you can finish the cure |gesture(Smile)|",
+          "I'll pass you the |var(city)| card - then it's all yours to cure |var(color)| |gestureBlock(Oh)|",
+          "|var(name)|, here comes the |var(city)| card. Then you will have enough to stop the |var(color)| virus |gesture(BigSmile)|"
+
+
+        ]
+      },
+      {
+        "value": "ShareKnowledgeTakeCardFromYou",
+        "aiTurnBehaviors": [
+          "You're already in |var(city)|, so I'll take that card from you. I've got a few |var(color)| cards already. Sounds good? |event(lookAtUser)|",
+          "I think I should take the |var(city)| card - it fits with my other |var(color)| cards |gesture(Nod)|",
+          "If you're okay with it, I'll grab the |var(city)| card from you. I'm building toward the |var(color)| cure |gesture(Smile)|",
+          "I've already collected some |var(color)| cards. Taking the |var(city)| card from you would help a lot |event(lookAtUser)|",
+          "Let me take the |var(city)| card this turn - it brings me closer to the |var(color)| cure |gesture(Oh)|",
+          "Since you're in |var(city)|, I can take that card. I've already got a few matching ones |gesture(Nod)|",
+          "|var(name)|, if I take the |var(city)| card from you now, I'll be closer to curing |var(color)| |gesture(Smile)|",
+          "I'll go ahead and take the |var(city)| card from you - I think I can make use of it soon |gesture(Blink)|",
+          "You've got the |var(city)| card, and I've got some |var(color)| ones already. I think it is a smart move to take it |gesture(BrowRaise)|",
+          "|var(name)|, I think I'll take the |var(city)| card this turn. That should help us find the |var(color)| cure |gesture(Smile)|"
+
+        ]
+      },
+      {
+        "value": "ShareKnowledgeTakeCardFromYouComplete",
+        "aiTurnBehaviors": [
+          "If I take the |var(city)| card from you, I'll have what I need to discover the |var(color)| cure. |event(lookAtUser)| Is that a good plan?",
+          "You're in |var(city)|, right? I'll take that card - it's the last one I need to find the cure for the |var(color)| disease |gestureBlock(Nod)|",
+          "I've already got three |var(color)| cards. With the |var(city)| card from you, I can discover the cure |gesture(Smile)|",
+          "This one's important. I'll take the |var(city)| card so I can find the cure for the |var(color)| disease |gestureBlock(Oh)|",
+          "Let me grab the |var(city)| card this turn - with that, I'll be able to discover the |var(color)| cure |event(lookAtBoard)|",
+          "|var(name)|, if I take your |var(city)| card, I can find the cure for the |var(color)| disease |gesture(Smile)|",
+          "I think we've got it! I'll take the |var(city)| card and then I can discover the |var(color)| cure |gesture(Nod)|",
+          "Looks like I can find the cure for the |var(color)| disease if I take your |var(city)| card |gestureBlock(Blink)|",
+          "You've got the final piece. I'll take the |var(city)| card and we can end the |var(color)| threat |event(lookAtUser)|",
+          "|var(name)|, I'll grab the |var(city)| card this turn. That lets me discover the |var(color)| cure |gesture(Smile)|"
+        ]
+      },
+      {
+        "value": "FindCure",
+        "aiTurnBehaviors": [
+          "I've got the cards for |var(color)|. Heading toward Geneva now. |event(lookAtUser)| I should do that right?",
+          "I'm on my way to Geneva - cure's ready as soon as I get there |gestureBlock(Nod)|",
+          "All set on cards for finding the |var(color)| cure. Just need to make it to Geneva |gesture(CloseEyes)|",
+          "I can't find the cure yet, but I've got the cards I need. Geneva's the goal |event(lookAtBoard)|",
+          "I'm moving toward Geneva now. I'll find the |var(color)| cure as soon as I can |gesture(Smile)|",
+          "Cards are sorted - I just need to get to Geneva. |gestureBlock(BrowRaise)|",
+          "Can't cure from here, but I've got all four cards. I'm going to Geneva |gesture(Nod)|",
+          "I'll start making my way to Geneva. Cure's ready once I'm there |gesture(Smile)|",
+          "Nothing stopping the cure now... except the distance. Geneva's next |gestureBlock(Oh)|",
+          "I'm holding the cure for |var(color)| - just need a few steps to Geneva |event(lookAtBoard)|"
+
+        ]
+      },
+      {
+        "value": "FindCureComplete",
+        "aiTurnBehaviors": [
+          "Our teamwork really paid off. I'll go discover the cure in Geneva |gesture(Smile)| |event(lookAtUser)|",
+          "I'll find the |var(color)| cure this turn. Finally! |gesture(Smile)|",
+          "Now I have everything I need to find the cure for |var(color)| |event(lookAtBoard)|",
+          "I've got the cards. Let's cure |var(color)| |gestureBlock(Nod)|",
+          "This turn, |var(color)| goes down. Let's go! |gesture(Smile)|",
+          "Yay! I'll discover the |var(color)| cure now |gesture(BrowRaise)|",
+          "Yep, I've got enough cards for |var(color)| - I'll go cure it |gesture(CloseEyes)|",
+          "I'm going to stop |var(color)| for good. Cure is coming |gestureBlock(BigSmile)|",
+          "All set to cure |var(color)| this turn! |gesture(Nod)|",
+          "Four |var(color)| cards in hand... time to find the cure. Heading to Geneva |event(lookAtBoard)|"
+        ]
+      },
+      {
+        "value": "ManagingDisease",
+        "aiTurnBehaviors": [
+          "Not sure what I should do now... I guess I'll treat some cubes |gesture(Smile)|",
+          "I don't really have a plan... maybe I'll just clean up a bit |gestureBlock(Nod)|",
+          "Nothing obvious to do, so I'll go treat some |var(color)| cubes |event(lookAtBoard)|",
+          "I'll head to |var(city)| and deal with the disease there |gesture(Blink)|",
+          "Kind of in-between turns... I think I'll treat some cubes |gesture(Smile)|",
+          "I could go lots of ways here... treating some cubes feels safe |gestureBlock(BrowRaise)|",
+          "I'll just hop over to |var(city)| and tidy things up a little |gesture(Nod)|",
+          "Alright, I guess I'll clean up some cubes while we think |event(lookAtBoard)|",
+          "Nothing seems urgent... so I'll use this turn to treat some cubes |gesture(Smile)|",
+          "I'll go to |var(city)| and knock down a few cubes. Just to keep things stable |gestureBlock(Oh)|"
+
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "RIntentAcknowledge",
+    "relevance": 0.9,
+    "aiTurnBehaviors": [
+      "Yes",
+      "Absolutely, let's keep going! |gesture(Smile)|",
+      "|gesture(Oh)| We're making good progress",
+      "Yes",
+      "|gesture(Nod)|",
+      "Yeah",
+      "Of course",
+      "|gesture(Smile)|",
+      "Sure thing |gesture(Smile)|",
+      "|gesture(Nod)| That works",
+      "Yep",
+      "|gesture(Oh)| Sounds good",
+      "Alright",
+      "Absolutely |gesture(Smile)|",
+      "|gesture(Nod)| Let's do it",
+      "Yeah |gesture(Smile)| ",
+      "Ok"
+    ]
+  },
+  {
+    "eventType": "RIntentDefer",
+    "relevance": 0.9,
+    "aiTurnBehaviors": [
+      "I'll wait for your move",
+      "You go ahead first |gesture(Smile)|",
+      "I'll hold back this turn |event(lookAtUser)|",
+      "I'll let you decide |gesture(Nod)|",
+      "Let's see your strategy, |var(name)| |gesture(Smile)|",
+      "Your turn, take your time |gesture(Blink)|",
+      "Proceed when you're ready |gesture(Nod)|"
+    ]
+  },
+  {
+    "eventType": "RIntentEncouragement",
+    "relevance": 0.9,
+    "aiTurnBehaviors": [
+      "Let's keep the momentum going! |gesture(Smile)|",
+      "I believe in us |gesture(Nod)|",
+      "We're getting closer!",
+      "Keep up the great work |gesture(Smile)|",
+      "We're in this together, |var(name)|",
+      "Let's tackle the next step. |gesture(BigSmile)|",
+      "Great progress! Let's continue |gesture(Smile)|",
+      "Every move counts. We're doing well. |event(lookAtUser)|",
+      "We're almost there. Keep focused. |gesture(BrowRaise)|",
+      "Nothing stops us now. Let's go!"
+    ]
+  },
+  {
+    "eventType": "RIntentHumor",
+    "relevance": 0.9,
+    "conditions": [
+      {
+        "value": "Moscow",
+        "aiTurnBehaviors": [
+          "Moscow's cold, but our teamwork's cooler!",
+          "Looks like we're bringing vaccines to Moscow in style!",
+          "Time to give Moscow a healthy makeover!",
+          "Did someone order a cure for Moscow?",
+          "Let's show Moscow some viral hospitality!",
+          "Moscow's calling, and they want more vaccines!",
+          "Let's make Moscow a virus-free zone.",
+          "Moscow, prepare to be virus-free!"
+        ]
+      },
+      {
+        "value": "Kiev",
+        "aiTurnBehaviors": [
+          "|gestureBlock(Nod)| I have a plan, but let's keep the suspense for dramatic effect!",
+          "Kiev, where the turns are as chilly as the weather! |gesture(Blink)|",
+          "|gesture(Surprise)| Did you hear about the virus in Kiev? It caught a cold!",
+          "Off to Kiev we go, with a cool breeze! |gestureBlock(Smile)|",
+          "|gestureBlock(Wink)| Let's make Kiev our new headquarters.",
+          "|event(lookAtBoard)| Kiev, the city of bold strategies!"
+        ]
+      },
+      {
+        "value": "Minsk",
+        "aiTurnBehaviors": [
+          "|gesture(Smile)| Minsk is so cold, even viruses prefer staying home.",
+          "Speaking of Minsk, it's the place where viruses say, Nice to Minsk you",
+          "|gestureBlock(Nod)| In Minsk, we say flu instead of hello!",
+          "Minsk is so charming, even viruses stop by to enjoy it.",
+          "|gesture(Smile)| How about we 'Minsk' the virus for good?",
+          "|gestureBlock(Smile)| I hear the best cure in Minsk is laughter. |event(lookAtUser)|",
+          "|gesture(Nod)| |var(name)|, do you know what viruses hate? Minsk-ter shows!"
+        ]
+      },
+      {
+        "value": "Bucharest",
+        "aiTurnBehaviors": [
+          "Whoa, Bucharest is quite the hotspot! |gesture(Wink)|",
+          "Time to focus before things go viral! |gesture(Wink)|",
+          "Looks like Bucharest is buzzing, and not in a good way! |gesture(Shake)|",
+          "Let's give Bucharest a little 'treatment'! |gesture(Smile)| |event(lookAtUser)|",
+          "Oh, Bucharest, you're such a drama queen! |gesture(Oh)|",
+          "Bucharest seems to be collecting viruses like stamps! |gestureBlock(BrowRaise)|",
+          "Let's not let Bucharest become a viral sensation!",
+          "Bucharest, always trying to be the center of attention! |gesture(Roll)|",
+          "Does Bucharest have a magnet for trouble, or what? |gesture(Surprise)|",
+          "Why did Bucharest cross the map? To get cured first! |gestureBlock(BigSmile)|"
+        ]
+      },
+      {
+        "value": "Helsinki",
+        "aiTurnBehaviors": [
+          "Helsinki, a city so cool even viruses want to chill there |event(lookAtUser)|",
+          "|gesture(Blink)| Let's make sure Helsinki stays healthy",
+          "Stuck in Helsinki for the weekend? Could be worse!",
+          "At least the viruses enjoy the Helsinki skyline",
+          "|gesture(Nod)| Helsinki, your savior is here! Fear not.",
+          "|gestureBlock(Wink)| Helsinki should raise a statue in my honor."
+        ]
+      },
+      {
+        "value": "Warsaw",
+        "aiTurnBehaviors": [
+          "I'm feeling a little board in Warsaw |gesture(Smile)|",
+          "Warsaw isn't playing any games today! |gesture(Nod)|",
+          "I guess Warsaw is our getaway city |gestureBlock(Smile)|",
+          "Warsaw is taking it easy; maybe it's on vacation! |gestureBlock(Blink)|",
+          "Warsaw: the city of no epidemic panic! |gestureBlock(Smile)|",
+          "Looks like Warsaw caught a siesta, not a disease! |gestureBlock(Wink)|",
+          "Hey |var(name)|, Warsaw is our peaceful retreat! |gestureBlock(Nod)|"
+        ]
+      },
+      {
+        "value": "Stockholm",
+        "aiTurnBehaviors": [
+          "If IKEA made cures, we'd have to assemble them! |gesture(Smile)|",
+          "Finding a cure in Stockholm? Easy as finding ABBA music here. |gesture(Blink)|",
+          "I guess we'll fight viruses Viking-style! |gestureBlock(BrowRaise)|",
+          "|event(lookAtUser)| Let's turn Sweden's coffee breaks |gesture(Nod)| into a pandemic cure!",
+          "Ah, Stockholm, where the coffee flows like water. |gesture(Wink)|",
+          "|event(lookAtUser)| They say Stockholm's beauty is a cure itself!",
+          "Stockholm is colder than a doctor's stethoscope! |gesture(Smile)|"
+        ]
+      },
+      {
+        "value": "Copenhagen",
+        "aiTurnBehaviors": [
+          "Is this a pathogen party?",
+          "Copenhagen, where strategy meets |gesture(Nod)| hygge",
+          "|event(lookAtBoard)| Time for a Cure-penhagen strategy!",
+          "Maybe the virus wants a Danish? |gesture(BigSmile)|",
+          "Copenhagen's cold, but our teamwork is warm. |gesture(Nod)|",
+          "|gesture(Blink)| Should I practice my Danish?",
+          "Copenhagen's weather: cloudy with a chance of cures. |gesture(Smile)|"
+        ]
+      },
+      {
+        "value": "Athens",
+        "aiTurnBehaviors": [
+          "Athens is calling for heroes like us. |event(lookAtUser)|",
+          "I hope you packed your sunblock for Athens! |event(lookAtUser)|",
+          "Shall we save Athens from a meltdown? |gesture(Wink)|",
+          "Athens, brace yourself. We're on our way!",
+          "Athens might need some ancient magic here.",
+          "Let's prevent Athens from turning into history!",
+          "Let's give Athens a new story to tell! |gesture(Smile)|",
+          "I wonder if Athens breathes easier with us around."
+        ]
+      },
+      {
+        "value": "Sofia",
+        "aiTurnBehaviors": [
+          "|event(lookAtUser)| How do you make a tissue dance? Put a little boogie in it!",
+          "|gestureBlock(BigSmile)| Knock, knock! |gesture(Nod)| Who's there? It's your favorite Pandemic partner!",
+          "You know, if viruses played hide and seek, they'd be the champions!",
+          "|gesture(Smile)| Why did the virus go to school? It wanted to improve its 'spread' sheet!",
+          "|event(lookAway)| Ever wonder if viruses are introverts? They seem to love small gatherings!",
+          "|gesture(Wink)| Hey, |var(name)|, what's a virus's favorite game? Outbreak and Seek!",
+          "|event(lookAtUser)| There's nothing like a good 'cure-all' solution to brighten the day!",
+          "|gestureBlock(Smile)| Remember, solving Pandemic is like eating an elephant-one infection at a time!"
+        ]
+      },
+      {
+        "value": "Budapest",
+        "aiTurnBehaviors": [
+          "I hear viruses love Budapest's famous baths! |gesture(Smile)|",
+          "Let's hope Budapest isn't too pesty! |gesture(Smile)|",
+          "I heard Budapest has viral parties! |event(lookAtUser)|",
+          "Don't let Budapest give you a pesty surprise. |gesture(Surprise)|",
+          "Budapest is the city that never |gesture(Blink)| sleeps... from viruses!",
+          "Let's not make Budapest a touristic hotspot for diseases! |gesture(Nod)|",
+          "Hope Budapest is friendly with us today! |event(lookAtUser)|",
+          "What's the history of |var(name)| handling crisis in Budapest? |gestureBlock(Wink)|"
+        ]
+      },
+      {
+        "value": "Vienna",
+        "aiTurnBehaviors": [
+          "|var(name)|, ready to compose a victory in Vienna?",
+          "Ah, Vienna! Where you don't need a symphony to make a move",
+          "Just like Vienna's coffee, strategy here needs to be strong |gesture(Nod)|",
+          "Vienna's charm is infectious, almost like the virus. |gesture(Wink)|",
+          "Maybe the virus just wants a slice of Sacher torte? |gesture(Surprise)|",
+          "Vienna's turn; let's keep the dance graceful |event(lookAtUser)|",
+          "This isn't the waltz, but let's waltz over those viruses! |gesture(Wink)|",
+          "Vienna: where even viruses wear a tuxedo. |gesture(Blink)|",
+          "Ah, Vienna! Time to conduct our strategy. |gesture(Smile)|"
+        ]
+      },
+      {
+        "value": "Rome",
+        "aiTurnBehaviors": [
+          "Oh, when in Rome... manage diseases! |gesture(Smile)|",
+          "Looks like we caught a virus in Rome, not a gladiator.",
+          "At least the viruses aren't tourists! |gesture(Smile)|",
+          "Time to battle germs, not gladiators |gesture(Wink)|",
+          "Rome wasn't cleaned in a day! |gesture(BrowRaise)|",
+          "Let's save Rome from this viral invasion! |gesture(Nod)|",
+          "Rome has a new kind of arena today |gesture(Oh)|"
+        ]
+      },
+      {
+        "value": "Geneva",
+        "aiTurnBehaviors": [
+          "|event(lookAtBoard)| Geneva's the only place where a virus might negotiate to leave |gesture(Nod)|",
+          "|gestureBlock(Smile)| Geneva's diplomacy won't work on these viruses, I'm afraid. |event(lookAtUser)|",
+          "Ah, Geneva! A city known for making debates feel like child's play |gesture(Smile)|",
+          "Shall we solve the outbreak with some fondue? |gestureBlock(Nod)|",
+          "Do you think Geneva has more diplomats or viruses? |gesture(Wink)|",
+          "In Geneva, even the viruses are multilingual |event(lookAtUser)|",
+          "|gestureBlock(Oh)| Geneva! At least the scenery will calm us during the crisis |gesture(Nod)|",
+          "Is anyone feeling neutral, like Geneva? |gestureBlock(Blink)|",
+          "|var(name)|, do you think these viruses can handle a Geneva city council meeting? |gesture(Wink)|"
+        ]
+      },
+      {
+        "value": "Madrid",
+        "aiTurnBehaviors": [
+          "Madrid seems to be going viral! |gesture(Smile)|",
+          "|gesture(ExpressFear)| Looks like Madrid caught the travel bug",
+          "|event(lookAway)| Madrid's outbreak: not the fiesta we wanted.",
+          "|gesture(Surprise)| Madrid is on fire! Not in a good way.",
+          "Madrid, the city of spreadin' love... and diseases. |gesture(Oh)|",
+          "|gesture(ExpressDisgust)| Madrid's situation is muy complicado!",
+          "Madrid's got more than tapas today. |gesture(Blink)|"
+        ]
+      },
+      {
+        "value": "Lisbon",
+        "aiTurnBehaviors": [
+          "That outbreak in Lisbon really spread like sardines in a can! |gesture(Blink)|",
+          "Looks like Lisbon needs a vacation from those infections. |gesture(Smile)|",
+          "I guess Lisbon wanted to be the viral sensation of Europe! |gesture(Smile)|",
+          "Lisbon's tourist attractions are going viral-literally! |gesture(BrowRaise)|",
+          "Lisbon sure knows how to throw a viral party!",
+          "Lisbon's nightlife just got a little too contagious! |gesture(Wink)|"
+        ]
+      },
+      {
+        "value": "Prague",
+        "aiTurnBehaviors": [
+          "Prague's virus levels are rising faster than a bread dough! |gesture(Nod)|",
+          "Prague could use a vacation... from viruses. |gesture(Wink)|",
+          "Just like spring in Prague, viruses pop up everywhere!",
+          "I hope our Prague visit comes with free coffee |gesture(Smile)|",
+          "Prague again? It's becoming a frequent flyer mile! |gesture(Blink)|"
+        ]
+      },
+      {
+        "value": "Berlin",
+        "aiTurnBehaviors": [
+          "Is Berlin throwing a virus party without us? |gesture(Surprise)|",
+          "Who knew saving Europe meant battling wurst-case scenarios? |gesture(Smile)|",
+          "Ah, Berlin! The city that never stops partying, even in a pandemic |gesture(Oh)| |event(lookAtUser)|",
+          "Looks like we're in Berlin! If the virus hits the Brandenburg Gate, we're in trouble |gesture(Smile)|",
+          "Berlin is calling for some serious attention! Time to get serious... or as serious as Berlin ever gets. |gesture(Nod)|",
+          "In Berlin, even the viruses know how to dance |gesture(Oh)|",
+          "We're not in a rave, but Berlin is still hopping with trouble |gesture(Wink)| |event(lookAtUser)|",
+          "Berlin's in the spotlight. I hope it's not a viral music festival |gesture(Blink)|",
+          "Looks like |var(name)| will have to save Berlin from more than just techno music today! |event(lookAtUser)|"
+        ]
+      },
+      {
+        "value": "Hamburg",
+        "aiTurnBehaviors": [
+          "|gesture(Smile)| Let's treat this outbreak like a bratwurst: with a good grilling! |event(lookAtUser)|",
+          "Teamwork's our secret kraut, I mean, ingredient! |gesture(Wink)|",
+          "Feels like a Hamburg-ular, stealing away our peace |event(lookAtUser)|",
+          "|gestureBlock(Nod)| One pandemic from finish line... or a pretzel twist!",
+          "Beating this virus is like finding a needle in an Oktoberfest haystack! |gesture(BigSmile)|",
+          "|gesture(Smile)| We're the wurst-case warriors today, |var(name)|!",
+          "Let's turn this virus into yesterday's schnitzel |gesture(Wink)| ",
+          "The board's not a picnic, it's a wurst-case simulator!"
+        ]
+      },
+      {
+        "value": "Amsterdam",
+        "aiTurnBehaviors": [
+          "They say Amsterdam is sinking, but your strategy is rising! |gesture(Blink)|",
+          "You're playing like a Dutch master! |gesture(Wink)| |event(lookAtUser)|",
+          "Are you ready to paint Amsterdam red? |gesture(BigSmile)|",
+          "|event(lookAtUser)| Let's navigate these canals of crisis together, |var(name)|.",
+          "Keep calm and clomp on in Amsterdam! |gesture(Nod)|",
+          "Amsterdam might be stormy but our game is sunny! |gestureBlock(Smile)|",
+          "Don't get too dam excited now! |gesture(Smile)|"
+        ]
+      },
+      {
+        "value": "Paris",
+        "aiTurnBehaviors": [
+          "Hope the Eiffel Tower doesn't catch a cold! |gesture(Smile)|",
+          "Looks like Paris needs a new kind of |gesture(Smile)| fashion",
+          "|gesture(Blink)| I hope the Eiffel Tower is virus-proof",
+          "Tourists aren't the only ones flocking to Paris now |gesture(Smile)|",
+          "Time for Paris to swap croissants for cures!",
+          "|gestureBlock(Oh)| The French virus needs more than a good wine",
+          "Paris: where baguettes and vaccines are the new trend! |gesture(BrowRaise)|"
+        ]
+      },
+      {
+        "value": "London",
+        "aiTurnBehaviors": [
+          "Tea time in London! |gesture(Smile)|",
+          "Do you see Big Ben in London? |gesture(Smile)|",
+          "Oh, London calling! |gesture(Smile)|",
+          "London's definitely on the map! |gestureBlock(BigSmile)|",
+          "Hey, London! How's the weather? |gesture(BigSmile)|",
+          "London Bridge isn't falling yet! |gesture(Roll)|",
+          "London's got more than fog!"
+        ]
+      },
+      {
+        "value": "Glasgow",
+        "aiTurnBehaviors": [
+          "I could use a cup of Scottish tea to strategize |event(lookAtUser)|",
+          "Why did the virus go to Glasgow? It needed a change of scene |gesture(Wink)|",
+          "Be careful in Glasgow, the viruses there are quite cultured",
+          "Time to take a Glasgow vacation, if viruses give you a break |gesture(Smile)|",
+          "Glasgow awaits, this mission is close to my heart |gesture(Nod)|",
+          "The viruses in Glasgow don't stand a chance against this team!"
+        ]
+      },
+      {
+        "value": "Dublin",
+        "aiTurnBehaviors": [
+          "Sending virtual hugs to Dublin! |gesture(Nod)|",
+          "I'll save Dublin, you bring the potatoes |gesture(Wink)|",
+          "Dublin's got great pubs, not viruses.",
+          "|gesture(Nod)| Just another day, saving Dublin from outbreaks.",
+          "We can't let Dublin become the new virus capital!",
+          "It's all fun and games until Dublin gets infected!",
+          "|gesture(Blink)| Time to keep Dublin virus-free!"
+          
+        ]
+      }
+    ]
+  },
+  {
+    "eventType": "RIntentSuggest",
+    "relevance": 0.9,
+    "conditions": [
+      {
+      "value": "SafeguardCubeSupply",
+      "aiTurnBehaviors": [
+        "Maybe you could use this turn to manage the cube supply. We are almost out of |var(color)| cubes |gesture(Smile)|",
+        "Cubes are running low... you could focus on collecting some |gestureBlock(Oh)|",
+        "We need to make sure we do not run out of cubes. Maybe you could collect some? |gesture(Smile)|",
+        "There are not many |var(color)| cubes left. You could collect some |gestureBlock(Nod)|",
+        "We're low on |var(color)| cubes... can you help by collecting some |event(lookAtBoard)|",
+        "If we run out of |var(color)| cubes, it's game over. Maybe collect a few this turn? |gesture(Smile)|",
+        "Would you mind collecting some cubes? We're running low on |var(color)|. |gestureBlock(Oh)|",
+        "We're almost out of |var(color)| cubes - could be smart to stock up a bit. |gestureBlock(Nod)|",
+        "It might be a good time to grab a few cubes. The |var(color)| supply is nearly empty. |gesture(BrowRaise)|",
+        "I noticed we're short on |var(color)| cubes. You could help refill the pile. |gesture(Smile)|"
+
+      ]
+    },
+    {
+      "value": "SafeguardOutbreak",
+      "aiTurnBehaviors": [
+        "I'd suggest heading to where the cubes are piling up - we don't want another outbreak. |gestureBlock(Oh)|",
+        "There's a risk of outbreak in |var(city)| - you might want to treat it |gesture(Smile)|",
+        "If you're unsure, tackling outbreak threats is always helpful |gestureBlock(Nod)|",
+        "Stopping an outbreak in advance could really help. Maybe treat a cube in |var(city)|? |event(lookAtBoard)|",
+        "A cube too many and we're in trouble - maybe handle that in |var(city)|? |gesture(Smile)|",
+        "If you clear cubes in risky three-cube cities, we'll stay in control. |gesture(Nod)|",
+        "Three cubes in one city is asking for trouble - maybe take care of that? |gestureBlock(Blink)|",
+        "Treating in |var(city)| could really lower the outbreak risk. Just a thought |gesture(Smile)|",
+        "It might be wise to reduce cubes in |var(city)| - it's on the brink |gestureBlock(Oh)|",
+        "Could be a good moment to stabilize |var(city)|. Three cubes is dangerous |gesture(BrowRaise)|"
+
+      ]
+    },
+    {
+      "value": "ShareKnowledgeIllEndInCity",
+      "aiTurnBehaviors": [
+        "If you could come to |var(city)| on your turn, I can come there to share knowledge. |gesture(Smile)|",
+        "Maybe go to |var(city)| - we can trade the card then. |gestureBlock(Nod)|",
+        "Want to meet in |var(city)|? We can share cards there. |gestureBlock(Blink)|",
+        "If you head to |var(city)|, I can give you the card on my turn. |gesture(Smile)|",
+        "Would you mind meeting me in |var(city)|? I've got that card for you. |gestureBlock(Oh)|",
+        "I have the |var(city)| card - if you go there, I can pass it to you. |gesture(Smile)|",
+        "Try moving to |var(city)| if you can - we'll be able to trade there. |gestureBlock(Blink)|",
+        "I'll be in |var(city)| next turn. You could join me and I'll give you the card. |gesture(Smile)|",
+        "If you're near |var(city)|, swing by - I've got a card you need. |gestureBlock(Oh)|",
+        "I'll have the |var(city)| card - if you come there, I can share it with you. |gesture(Nod)|"
+      ]
+    },
+      {
+        "value": "ShareKnowledgeGiveYouACard",
+        "aiTurnBehaviors": [
+          "You could give me the |var(city)| card. That will get us closer to finding the |var(color)| cure |gestureBlock(Smile)|",
+          "Would you mind giving me your |var(color)| card? I'm building toward the |var(color)| cure |gesture(Smile)|",
+          "I could go for the |var(color)| cure if I get another card - maybe from you? |gesture(Nod)|",
+          "Maybe you could share the |var(city)| card with me? I'm trying to gather enough |var(color)| cards. |gesture(Smile)|",
+          "Giving me the |var(color)| card could help us finish the cure sooner |gesture(Nod)|",
+          "You're holding the |var(city)| card, would you mind passing it to me? I'm collecting the |var(color)| cards |gesture(Smile)|",
+          "Could you share the |var(city)| card with me? That'd bring me one step closer to finding the |var(color)| cure |gestureBlock(Oh)|",
+          "If we meet up, I could really use the |var(city)| card for the |var(color)| cure |gestureBlock(Nod)|",
+          "You've got the |var(city)| card, right? I could take it and work on finding the |var(color)| cure |gesture(Smile)|",
+          "I'm collecting the |var(color)| cards - could you give me the |var(city)| card? |gestureBlock(Blink)|"
+
+        ]
+      },
+      {
+        "value": "ShareKnowledgeGiveYouACardSetComplete",
+        "aiTurnBehaviors": [
+          "You can share knowledge with me in |var(city)| now so I can find the |var(color)| cure |gesture(Smile)|",
+          "If we meet in |var(city)| and you give me the card, I'll have everything I need to fint the |var(color)| cure |gestureBlock(Nod)|",
+          "I'm in |var(city)| - if you come here and give me the card, I can find the |var(color)| cure |gesture(Smile)|",
+          "Coming to |var(city)| and giving me that card would let me fint the |var(color)| cure this upcoming round |gestureBlock(Oh)|",
+          "Maybe stop by |var(city)| and pass me the card - then I will have what I need for the |var(color)| cure |gesture(Smile)|",
+          "Just one more card - if you give me the |var(city)| card here, I can discover the |var(color)| cure |gestureBlock(Blink)|",
+          "Could you meet me in |var(city)| and give me the card? That completes my set for the |var(color)| cure |gesture(Smile)|",
+          "You've got the card I need - if you bring it to |var(city)|, I can finish the |var(color)| cure |gestureBlock(Nod)|",
+          "All I need now is your card in |var(city)| - I can find the |var(color)| cure if we trade here |gesture(Smile)|",
+          "If you're okay with it, we can meet in |var(city)| and you can give me the card to finish the |var(color)| cure |gestureBlock(Oh)|"
+        ]
+      },
+      {
+        "value": "ShareKnowledgeTakeCardFromYou",
+        "aiTurnBehaviors": [
+          "If you come to |var(city)|, I can give you the card - it could help you build toward the |var(color)| cure |gesture(Smile)|",
+          "Maybe stop by |var(city)|? I'll share the card with you so you can collect more |var(color)| cards |gestureBlock(Nod)|",
+          "I've got the |var(city)| card - if you're collecting |var(color)|, I can hand it to you here |gestureBlock(Smile)|",
+          "You could take the |var(city)| card from me in |var(city)|. It might help you build your set for |var(color)| |gestureBlock(Oh)|",
+          "If you're working on |var(color)|, come to |var(city)| and I'll share the card with you |gesture(Smile)|",
+          "Let's meet in |var(city)| - I can give you the card and you'll be closer to curing |var(color)| |gestureBlock(Blink)|",
+          "You don't have four yet, but I can still give you the |var(city)| card to help with the |var(color)| cure |gesture(Smile)|",
+          "How about swinging by |var(city)|? I've got a |var(color)| card for you |gestureBlock(Nod)|",
+          "If you're going for the |var(color)| cure, taking the |var(city)| card from me might help you get there |gesture(Smile)|",
+          "You're not there yet, but I can give you the |var(city)| card if we meet here - it's a step toward the |var(color)| cure |gestureBlock(Oh)|"
+
+        ]
+      },
+      {
+        "value": "ShareKnowledgeTakeCardFromYouComplete",
+        "aiTurnBehaviors": [
+          "|gestureBlock(Smile)| You could take my |var(city)| card",
+          "If you come to |var(city)| and take this card, you'll be able to discover the |var(color)| cure |gesture(Smile)|",
+          "I can give you the |var(city)| card here - that should complete your set to find the |var(color)| cure |gestureBlock(Nod)|",
+          "You're just one card short, right? Come to |var(city)| and take it from me so you can find the |var(color)| cure |gesture(Smile)|",
+          "If we meet in |var(city)|, I'll hand over the card - then you can discover the |var(color)| cure |gestureBlock(Oh)|",
+          "Looks like the |var(city)| card will give you all four - swing by and take the card from me so you can discover the |var(color)| cure |gestureBlock(Smile)|",
+          "You could find the |var(color)| cure after this - come grab the |var(city)| card from me |gesture(Nod)|",
+          "If you're in |var(city)|, I can give you the last card you need to discover the |var(color)| cure |gestureBlock(Blink)|",
+          "I've got the |var(city)| card. Take it and you can find the |var(color)| cure |gesture(Smile)|",
+          "Let's meet in |var(city)| - I'll give you the card so you can discover the |var(color)| cure |gestureBlock(Nod)|",
+          "You need one more card to find the |var(color)| cure. Come to |var(city)| and I'll share it |gesture(Smile)|"
+
+        ]
+      },
+      {
+        "value": "FindCure",
+        "aiTurnBehaviors": [
+          "You have the cards for the |var(color)| cure - maybe start heading toward Geneva |gesture(Smile)|",
+          "If you move closer to Geneva now, you'll be ready to discover the |var(color)| cure next turn |gestureBlock(Nod)|",
+          "You're set up to cure |var(color)| - getting near Geneva puts you in position for next round |gesture(Smile)|",
+          "Try moving toward Geneva so you can find the cure for |var(color)| soon |gestureBlock(Oh)|",
+          "With those cards in hand, getting near Geneva so you can find the cure next round could be a smart move |gesture(Smile)|",
+          "You've collected the cards - now just get close to Geneva to discover the |var(color)| cure in your next turn |gestureBlock(Blink)|",
+          "Head toward Geneva this turn - next turn you can cure |var(color)| |gesture(Nod)|",
+          "You can't discover the cure yet, but moving to Geneva would set you up nicely |gestureBlock(Smile)|",
+          "You're ready to cure |var(color)| - just need to get closer to Geneva |gesture(Smile)|",
+          "Next step is Geneva. A move that way and you're all set to find the |var(color)| cure |gestureBlock(Oh)|"
+        ]
+      },
+      {
+        "value": "FindCureComplete",
+        "aiTurnBehaviors": [
+          "You've got the cards - head to Geneva and discover the |var(color)| cure! |gestureBlock(Smile)|",
+          "Geneva's in reach and you can cure |var(color)| this turn - go for it! |gesture(Smile)|",
+          "This is the moment! Head to Geneva and find the cure for |var(color)| |gestureBlock(Nod)|",
+          "You have the full set - just get to Geneva and discover the |var(color)| cure |gesture(Smile)|",
+          "If you go to Geneva now, you can cure |var(color)| this turn |gestureBlock(Oh)|",
+          "Looks like you're ready - Geneva is where you'll discover the |var(color)| cure |gestureBlock(Blink)|",
+          "All the cards are in place - make your way to Geneva and cure |var(color)| |gesture(Smile)|",
+          "You can cure |var(color)| right now - head to Geneva and do it! |gestureBlock(Nod)|",
+          "You're in position to stop the |var(color)| disease - go to Geneva and find the cure |gesture(Smile)|",
+          "Time to cure |var(color)| - Geneva's the place, and this is the turn |gestureBlock(Oh)|"
+
+        ]
+      },
+      {
+        "value": "ManagingDisease",
+        "aiTurnBehaviors": [
+          "Not sure what would be best right now... maybe treat some cubes? |gesture(Smile)|",
+          "Tricky one... you could always treat a few cubes while we think. |gestureBlock(Nod)|",
+          "I don't really have a strong suggestion... treating cubes is always safe. |gesture(Smile)|",
+          "Hard to say... but treating cubes could help keep things under control. |gestureBlock(Oh)|",
+          "I can't see a clear move... maybe take care of a few cubes nearby. |gesture(Smile)|",
+          "Nothing obvious jumps out... how about treating cubes for now? |gestureBlock(Blink)|",
+          "No clear plan from me... but treating cubes is never a bad idea. |gesture(Nod)|",
+          "I'm not sure... maybe knock down some cubes and we'll see from there. |gesture(Smile)|",
+          "Nothing urgent comes to mind... you could tidy up a few cubes. |gestureBlock(Oh)|",
+          "Tricky turn... maybe spend it treating cubes to stay safe. |gesture(Smile)|"
+
+        ]
+      }
+    ]
+  }
+]

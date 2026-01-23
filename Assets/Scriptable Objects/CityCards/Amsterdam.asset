@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Amsterdam
+  m_EditorClassIdentifier: 
+  cityID: 19
+  neighbors: 120000001400000015000000
+  cityName: Amsterdam
+  population: 860.000
+  countryName: Netherlands
+  virusInfo: {fileID: 11400000, guid: 124bbd9c3c093494f8709abd22e318cb, type: 2}
+  mainArtwork: {fileID: -6496074065322277072, guid: bc7fef5d87251f6458f81a465539f85e, type: 3}
+  flagArtwork: {fileID: 21300000, guid: b51c0d6bba602ec4cb888bdeb4eda8f2, type: 3}

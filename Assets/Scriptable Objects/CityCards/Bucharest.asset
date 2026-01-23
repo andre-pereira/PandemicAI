@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Bucharest
+  m_EditorClassIdentifier: 
+  cityID: 3
+  neighbors: 010000000800000009000000
+  cityName: Bucharest
+  population: 1.800.000
+  countryName: Romania
+  virusInfo: {fileID: 11400000, guid: da69709b28dd74c44be7d4c05734fff8, type: 2}
+  mainArtwork: {fileID: -779824855817072889, guid: 16d5d680945247b418e33f152c100c49, type: 3}
+  flagArtwork: {fileID: 21300000, guid: 009e8658dd78bf640a00a7da5a47d3d1, type: 3}

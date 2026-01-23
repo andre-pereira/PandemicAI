@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Rome
+  m_EditorClassIdentifier: 
+  cityID: 12
+  neighbors: 080000000b0000000d000000
+  cityName: Rome
+  population: 2.900.000
+  countryName: Italy
+  virusInfo: {fileID: 11400000, guid: f02309e6a1a1dba4a9c7e50a15c36d0e, type: 2}
+  mainArtwork: {fileID: 3719652761608055817, guid: 1f6969c88b8c8bd41951d5f8eded11bb, type: 3}
+  flagArtwork: {fileID: 21300000, guid: d6f61af785c79a6418bb150322b4100c, type: 3}

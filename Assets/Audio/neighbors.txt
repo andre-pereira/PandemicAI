@@ -1,0 +1,26 @@
+0 Moscow 1,2,4
+1 Kiev 0,2,3
+2 Minsk 0,1,5,10
+3 Bucharest 1,8,9
+4 Helsinki 1,6
+5 Warsaw 2,6,7,16,17
+6 Stockholm 4,5,7
+7 Copenhagen 5,6,18
+
+8 Athens 3,9,11,12
+9 Sofia 3,8,10,11
+10 Budapest 2,9,11
+11 Vienna 9,10,12,13,16
+12 Rome 8,11,13
+13 Geneva  
+14 Madrid
+15 Lisbon
+
+16 Prague
+17 Berlin
+18 Hamburg
+19 Amsterdam
+20 Paris
+21 London
+22 Glasgow
+23 Dublin

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468f77e7098a184480c9a3f3d77263f, type: 3}
+  m_Name: Glasgow
+  m_EditorClassIdentifier: 
+  cityID: 22
+  neighbors: 1500000017000000
+  cityName: Glasgow
+  population: 635.000
+  countryName: United Kingdom
+  virusInfo: {fileID: 11400000, guid: 124bbd9c3c093494f8709abd22e318cb, type: 2}
+  mainArtwork: {fileID: 5800109495078484407, guid: 58efce1cca1211943a57884a496d6eca, type: 3}
+  flagArtwork: {fileID: 21300000, guid: e24bb5c642c5dd94c9b8acf3b3549bf0, type: 3}
