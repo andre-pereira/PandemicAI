@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669d2fa968cd2a84e91ce2c5fbcae2e0, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  PlayerCardsSeed: 2
-  InfectionCardsSeed: 2
+  PlayerCardsSeed: 11
+  InfectionCardsSeed: 11
   AnimationTimingMultiplier: 1
   PlayerUIOpacity: 0.7
-  PlayerName: Anass
-  BotName: Alex
+  PlayerName: Celina
+  BotName: Bot
   startingNCards: 3
   FirstToPlay: 0
   UseFurhat: 1
-  SpeechRecActivated: 1
+  SpeechRecActivated: 0
   EndSilTimeout: 1000
   NoSpeechTimeout: 5000
   SimulationMode: 0

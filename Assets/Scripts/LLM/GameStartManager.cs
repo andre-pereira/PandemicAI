@@ -7,11 +7,12 @@ using OPEN.PandemicAI; // Required for the CryptographicException
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using static GameStartManager;
 
 [System.Serializable]
 public class GameSettings
 {
-    public string mode;
+    public PlayerMode mode;
     public string name; // MODIFICATION: Added name field
     public string apiKey;
 }
@@ -36,6 +37,11 @@ public class GameStartManager : MonoBehaviour
     public LLMRequestHandler llmRequestHandler; // Reference to the LLMRequestHandler
     public Furhat furhat; // Reference to the Furhat instance
 
+    public string NamePlayer1; // Player name
+    public string NamePlayer2; // Player name
+    public PlayerMode Mode;
+    public string ApiKey;
+
     private string _decryptedApiKey;
     private const string ENCRYPTED_KEY_PREF = "EncryptedApiKey_"; // Base name for our PlayerPref
 
@@ -58,8 +64,9 @@ public class GameStartManager : MonoBehaviour
         //{
             //apiKeyPanel.SetActive(false);
         //});
-
-        startPlayButton.onClick.AddListener(HandleSubmission);
+        GameRoot.Config.PlayerName = NamePlayer1;
+        GameRoot.Config.BotName = NamePlayer2;
+        startPlayButton.onClick.AddListener(HandleSubmissionFromEditor);
     }
 
     private void UpdateUIForSelectedBackend()
@@ -91,9 +98,75 @@ public class GameStartManager : MonoBehaviour
         }
     }
 
-    private void HandleSubmission()
+
+private void HandleSubmissionFromEditor()
     {
-        string playerMode;
+        switch (Mode)
+        {
+            case PlayerMode.Human:
+                GameRoot.Config.SpeechRecActivated = false;
+                GameRoot.Config.UseFurhat = false;
+                GameRoot.Config.UseAIContainmentSpecialist = false;
+                GameRoot.Config.UseAIQuarantineSpecialist = false;
+                GameRoot.Config.SimulationMode = false;
+                GameRoot.Config.StepByStepSimulation = false;
+                GameRoot.Config.PlayerCardsSeed = 11;
+                GameRoot.Config.InfectionCardsSeed = 11;
+                break;
+            case PlayerMode.RuleBased:
+                GameRoot.Config.SpeechRecActivated = true;
+                GameRoot.Config.UseFurhat = true;
+                GameRoot.Config.UseAIContainmentSpecialist = false;
+                GameRoot.Config.UseAIQuarantineSpecialist = false;
+                GameRoot.Config.SimulationMode = false;
+                GameRoot.Config.StepByStepSimulation = false;
+                selectedBackend = Backend.LMStudio; // Force LMStudio backend for rule-based
+                llmRequestHandler.LLMMode = LLMRequestHandler.GenerationMode.intent; // Set to rule-based mode
+                llmRequestHandler.llmModel = LLMRequestHandler.LLMModel.Gemma3_12b; // Set the model to RuleBased
+                furhat.furhatConfig.JSONFileName = "event-dialog-mapping-flow.json";
+                GameRoot.Config.PlayerCardsSeed = 5;
+                GameRoot.Config.InfectionCardsSeed = 5;
+                break;
+            case PlayerMode.LLM:
+                GameRoot.Config.SpeechRecActivated = true;
+                GameRoot.Config.UseFurhat = true;
+                GameRoot.Config.UseAIContainmentSpecialist = false;
+                GameRoot.Config.UseAIQuarantineSpecialist = false;
+                selectedBackend = Backend.OpenAI; // Force OpenAI backend for LLM
+                GameRoot.Config.SimulationMode = false;
+                GameRoot.Config.StepByStepSimulation = false;
+                llmRequestHandler.LLMMode = LLMRequestHandler.GenerationMode.free; // Set to free mode for LLM
+                llmRequestHandler.llmModel = LLMRequestHandler.LLMModel.GPT_41_paid; // Set the model to LLM
+                furhat.furhatConfig.JSONFileName = "furhatlm.json";
+                GameRoot.Config.PlayerCardsSeed = 2;
+                GameRoot.Config.InfectionCardsSeed = 2;
+                break;
+            case PlayerMode.Simulation:
+                GameRoot.Config.SpeechRecActivated = false;
+                GameRoot.Config.UseFurhat = false;
+                GameRoot.Config.UseAIContainmentSpecialist = true;
+                GameRoot.Config.UseAIQuarantineSpecialist = true;
+                GameRoot.Config.SimulationMode = true;
+                GameRoot.Config.StepByStepSimulation = true;
+                break;
+            default:
+                statusText.text = "Invalid player mode selected in JSON file.";
+                return;
+        }
+
+
+        GameRoot.Config.PlayerName = NamePlayer1; // Save the player name
+        
+        startPlayButton.gameObject.SetActive(false);
+
+        _decryptedApiKey = ApiKey;
+        OnApiKeyReady?.Invoke();
+    }
+
+
+    private void HandleSubmissionFromFile()
+    {
+        PlayerMode playerMode;
         string apiKey;
 
         // --- NEW LOGIC: Load mode and API key directly from the JSON file ---
@@ -133,7 +206,7 @@ public class GameStartManager : MonoBehaviour
 
         switch (playerMode)
         {
-            case nameof(PlayerMode.Human):
+            case PlayerMode.Human:
                 GameRoot.Config.SpeechRecActivated = false;
                 GameRoot.Config.UseFurhat = false;
                 GameRoot.Config.UseAIContainmentSpecialist = false;
@@ -143,7 +216,7 @@ public class GameStartManager : MonoBehaviour
                 GameRoot.Config.PlayerCardsSeed = 11;
                 GameRoot.Config.InfectionCardsSeed = 11;
                 break;
-            case nameof(PlayerMode.RuleBased):
+            case PlayerMode.RuleBased:
                 GameRoot.Config.SpeechRecActivated = true;
                 GameRoot.Config.UseFurhat = true;
                 GameRoot.Config.UseAIContainmentSpecialist = false;
@@ -157,7 +230,7 @@ public class GameStartManager : MonoBehaviour
                 GameRoot.Config.PlayerCardsSeed = 5;
                 GameRoot.Config.InfectionCardsSeed = 5;
                 break;
-            case nameof(PlayerMode.LLM):
+            case PlayerMode.LLM:
                 GameRoot.Config.SpeechRecActivated = true;
                 GameRoot.Config.UseFurhat = true;
                 GameRoot.Config.UseAIContainmentSpecialist = false;
@@ -171,7 +244,7 @@ public class GameStartManager : MonoBehaviour
                 GameRoot.Config.PlayerCardsSeed = 2;
                 GameRoot.Config.InfectionCardsSeed = 2;
                 break;
-            case nameof(PlayerMode.Simulation):
+            case PlayerMode.Simulation:
                 GameRoot.Config.SpeechRecActivated = false;
                 GameRoot.Config.UseFurhat = false;
                 GameRoot.Config.UseAIContainmentSpecialist = true;
@@ -192,79 +265,6 @@ public class GameStartManager : MonoBehaviour
         }
         GameRoot.Config.PlayerName = name; // Save the player name
 
-        // --- OLD LOGIC FOR API KEY HANDLING IS NOW COMMENTED OUT ---
-        /*
-        // If no API key or password is provided, default to LMStudio
-        if (string.IsNullOrWhiteSpace(apiKeyInputField.text) && string.IsNullOrWhiteSpace(passwordInputField.text))
-        {
-            selectedBackend = Backend.LMStudio;
-        }
-
-        if (selectedBackend == Backend.LMStudio)
-        {
-            statusText.text = "Starting with LMStudio backend.";
-            startPlayButton.gameObject.SetActive(false);
-            OnApiKeyReady?.Invoke();
-            return;
-        }
-
-        string password = passwordInputField.text;
-        if (string.IsNullOrEmpty(password))
-        {
-            statusText.text = "Password cannot be empty for this backend.";
-            return;
-        }
-
-        string playerPrefKey = ENCRYPTED_KEY_PREF + selectedBackend.ToString();
-
-        // SCENARIO 1: First-time setup (no key saved yet)
-        if (!PlayerPrefs.HasKey(playerPrefKey))
-        {
-            string apiKey = apiKeyInputField.text;
-            if (string.IsNullOrWhiteSpace(apiKey))
-            {
-                statusText.text = "API Key field cannot be empty for this backend.";
-                return;
-            }
-
-            // Encrypt and save
-            string encryptedKey = EncryptionHelper.Encrypt(apiKey, password);
-            PlayerPrefs.SetString(playerPrefKey, encryptedKey);
-            PlayerPrefs.Save();
-
-            _decryptedApiKey = apiKey;
-            statusText.text = "API Key saved and encrypted!";
-            apiKeyPanel.SetActive(false);
-            Debug.Log($"Successfully saved key for {selectedBackend}");
-            OnApiKeyReady?.Invoke();
-        }
-        // SCENARIO 2: Key exists, trying to unlock
-        else
-        {
-            string encryptedKey = PlayerPrefs.GetString(playerPrefKey);
-            try
-            {
-                _decryptedApiKey = EncryptionHelper.Decrypt(encryptedKey, password);
-                statusText.text = "API Key unlocked successfully!";
-                apiKeyPanel.SetActive(false);
-                Debug.Log($"Successfully decrypted key for {selectedBackend}");
-                OnApiKeyReady?.Invoke();
-            }
-            catch (CryptographicException)
-            {
-                statusText.text = "Wrong password. Please try again.";
-                passwordInputField.text = "";
-            }
-            catch (Exception ex)
-            {
-                statusText.text = "Decryption failed. The key may be corrupt.";
-                Debug.LogError("Error decrypting API key: " + ex.Message);
-            }
-        }
-        */
-        // --- END OF COMMENTED OUT SECTION ---
-
-        // Directly proceed to start the game after loading settings
         statusText.text = $"Starting game in {playerMode} mode.";
         startPlayButton.gameObject.SetActive(false);
         OnApiKeyReady?.Invoke();
