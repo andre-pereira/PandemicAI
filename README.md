@@ -4,7 +4,7 @@ PandemicAI is a Unity implementation of a cooperative board game in which a pers
 
 ## Framework architecture
 
-![The shared board supplies state to the turn planner and events to the timeline. The Furhat teammate receives plans and events, listens to the player, and sends actions back to the board. The system records both game events and robot commands.](docs/pandemicai-runtime.png)
+![The shared board supplies state to the turn planner and events to the timeline. The Furhat teammate receives plans and events, listens to the player, and sends actions back to the board. The system records both game events and robot commands.](Docs/pandemicai-runtime.png)
 
 **Follow one move.** The [planner](Assets/Scripts/AI/PandemicAI.cs) selects a destination. While announcing a move, the robot can reach a `|event(dragPawn)|` tag in its utterance. At that point the [speech callback](Assets/Scripts/AI/Furhat/FurhatSpeech.cs) reads the destination from the queued action, and the [board executor](Assets/Scripts/AI/Furhat/FurhatGameExecutor.cs) drags the digital pawn. The plan determines *where* the pawn goes; the tag determines *when* it moves.
 
