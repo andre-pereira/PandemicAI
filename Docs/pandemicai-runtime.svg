@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="824" viewBox="0 0 1160 824" role="img" aria-labelledby="title desc">
+<title id="title">PandemicAI framework architecture</title>
+<desc id="desc">The touch board and game engine supply state to a turn planner and queue gameplay events. The planner sends a goal and action queue to an embodied teammate. The event timeline also notifies the teammate, whose speech callbacks can send clicks and drags back to the board. Game events and robot commands are recorded separately. The game and planner also support simulation without a robot.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L9 5 L0 10 L2.4 5 Z" fill="#425970"/></marker><marker id="return" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L9 5 L0 10 L2.4 5 Z" fill="#146d68"/></marker></defs>
+<rect x="0" y="0" width="1160" height="824" rx="0" fill="#fff" stroke="none" stroke-width="1"/>
+<text x="34" y="48" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="38" font-weight="700" letter-spacing="0">PandemicAI framework</text>
+<text x="35" y="78" text-anchor="start" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="0">A shared board for human–robot play and for running the planner in simulation.</text>
+<rect x="34" y="158" width="432" height="170" rx="13" fill="#eff7fb" stroke="#acceDF" stroke-width="1.45"/>
+<rect x="53" y="178" width="4" height="30" rx="2" fill="#224e8c" stroke="none" stroke-width="1"/>
+<rect x="654" y="158" width="440" height="170" rx="13" fill="#f2f6fb" stroke="#bbcee2" stroke-width="1.45"/>
+<rect x="673" y="178" width="4" height="30" rx="2" fill="#224e8c" stroke="none" stroke-width="1"/>
+<rect x="34" y="399" width="432" height="189" rx="13" fill="#f5f2f8" stroke="#d3c4dc" stroke-width="1.45"/>
+<rect x="53" y="419" width="4" height="30" rx="2" fill="#6b4c80" stroke="none" stroke-width="1"/>
+<rect x="654" y="399" width="440" height="189" rx="13" fill="#edf7f4" stroke="#b4d7cf" stroke-width="1.45"/>
+<rect x="673" y="419" width="4" height="30" rx="2" fill="#126c67" stroke="none" stroke-width="1"/>
+<rect x="34" y="670" width="1060" height="123" rx="12" fill="#fdf7ec" stroke="#e3cfa9" stroke-width="1.4"/>
+<path d="M 1095,526 H 1120 Q 1131,526 1131,515 V 131 Q 1131,120 1120,120 H 267 Q 254,120 254,133 V 155" stroke="#126c67" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#return)"/>
+<rect x="429" y="103" width="512" height="33" rx="16" fill="white" stroke="none" stroke-width="1"/>
+<text x="685" y="126" text-anchor="middle" fill="#126c67" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="0">Board executor sends clicks and drags back to Unity</text>
+<path d="M 467,238 H 649" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="558" y="224" text-anchor="middle" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">board state</text>
+<path d="M 248,329 V 394" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="260" y="368" text-anchor="start" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">queued events</text>
+<path d="M 692,329 V 394" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="704" y="368" text-anchor="start" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">goal + action queue</text>
+<path d="M 1051,397 V 332" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="1038" y="368" text-anchor="end" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">replan request</text>
+<path d="M 467,491 H 649" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="557" y="477" text-anchor="middle" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">event + payload</text>
+<path d="M 248,590 V 666" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)" stroke-dasharray="5 5"/>
+<text x="261" y="637" text-anchor="start" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">executed events</text>
+<path d="M 865,590 V 666" stroke="#425970" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)" stroke-dasharray="5 5"/>
+<text x="878" y="637" text-anchor="start" fill="#29465d" font-family="Liberation Sans, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0">robot commands</text>
+<text x="66" y="199" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0">Shared board &amp; game engine</text>
+<text x="55" y="238" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Players touch the same map to move pawns,</text>
+<text x="55" y="265" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">treat cities, and exchange cards.</text>
+<text x="55" y="304" text-anchor="start" fill="#29465d" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="400" letter-spacing="0">GameGUI  ·  GameRoot  ·  TurnFlow</text>
+<text x="686" y="199" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0">Turn planner</text>
+<text x="675" y="238" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Selects a goal, a target, and the moves</text>
+<text x="675" y="265" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">to reach it. Can run in AI-only games.</text>
+<text x="675" y="304" text-anchor="start" fill="#29465d" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="400" letter-spacing="0">PandemicAI  ·  BoardSearch  ·  WinRate</text>
+<text x="66" y="440" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0">Event timeline</text>
+<text x="55" y="481" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Executes queued events and notifies</text>
+<text x="55" y="508" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">subscribers. A city click, a card exchange,</text>
+<text x="55" y="535" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">and an outbreak each have an event type.</text>
+<text x="55" y="567" text-anchor="start" fill="#29465d" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="400" letter-spacing="0">TimelineEvent  ·  EventProcessor</text>
+<text x="686" y="440" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="0">Embodied teammate (Furhat)</text>
+<text x="675" y="481" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Listens to speech and discusses the plan.</text>
+<text x="675" y="508" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Game events can trigger utterances; tags cue</text>
+<text x="675" y="535" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">gaze, facial gestures, and board actions.</text>
+<text x="675" y="567" text-anchor="start" fill="#29465d" font-family="DejaVu Sans Mono, monospace" font-size="16" font-weight="400" letter-spacing="0">DialogActs  ·  FurhatSpeech  ·  FurhatGaze</text>
+<text x="54" y="707" text-anchor="start" fill="#96561e" font-family="Liberation Sans, Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="0">Session logs</text>
+<text x="54" y="742" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0">Game events</text>
+<text x="54" y="771" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Time, event type, player, and event-specific fields</text>
+<text x="615" y="742" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0">Robot activity</text>
+<text x="615" y="771" text-anchor="start" fill="#142e43" font-family="Liberation Sans, Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0">Recognized speech, utterances, gaze, and callbacks</text>
+</svg>
